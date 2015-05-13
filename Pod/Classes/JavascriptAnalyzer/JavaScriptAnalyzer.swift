@@ -11,18 +11,18 @@ import JavaScriptCore
 
 let kJavascriptAnalyzerSharedInstance = JavaScriptAnalyzer()
 
-class JavaScriptAnalyzer: NSObject {
+public class JavaScriptAnalyzer: NSObject {
    
-    var context: JSContext?
+    public var context: JSContext?
     
-    class func sharedInstance() -> JavaScriptAnalyzer {
+    public class func sharedInstance() -> JavaScriptAnalyzer {
         
         return kJavascriptAnalyzerSharedInstance
     }
     
-    func loadScript(path: String) {
+    public func loadScript(name: String) {
         
-        let resource = NSBundle.mainBundle().pathForResource(path, ofType: "txt")!
+        let resource = NSBundle.mainBundle().pathForResource(name, ofType: "txt")!
         
         var error: NSError?
         let script = String(contentsOfFile: resource, encoding: NSUTF8StringEncoding, error: &error)
@@ -31,11 +31,24 @@ class JavaScriptAnalyzer: NSObject {
         context?.evaluateScript(script)
     }
     
-    func executeJavaScriptFunction(functionName: String, args:Array<AnyObject>) -> JSValue {
+    public func executeJavaScriptFunction(functionName: String, args:Array<AnyObject>) -> JSValue {
         
         let function = context!.objectForKeyedSubscript(functionName)
         return function.callWithArguments(args)
         
+    }
+    
+    func loadScriptInternally(name: String) {
+        
+        var bundle: NSBundle = NSBundle(identifier: "ABToolkit")!
+        
+        let resource = bundle.pathForResource(name, ofType: "txt")!
+        
+        var error: NSError?
+        let script = String(contentsOfFile: resource, encoding: NSUTF8StringEncoding, error: &error)
+        
+        context = JSContext()
+        context?.evaluateScript(script)
     }
     
 }

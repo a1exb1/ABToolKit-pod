@@ -91,7 +91,8 @@
 		D7DC935CA13C0ABC35A50447 /* CompresJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B622FFD3E99BEA9C845D1D2 /* CompresJsonRequest.swift */; };
 		D91AE9F5746219BD4DA10810 /* JavaScriptAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B045F3B3A81E79757563E11 /* JavaScriptAnalyzer.swift */; };
 		DF32592DB432F0DF90B7C6F4 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBC0B8AF0686D947B04F2C /* DateFormat.swift */; };
-		E4490FC31B036833009BBAF8 /* encryptor_compressor.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4490FC21B036833009BBAF8 /* encryptor_compressor.txt */; };
+		E4356F9F1B036A210028547E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = E4356F9D1B036A210028547E /* .gitkeep */; };
+		E4356FA01B036A210028547E /* encryptor_compressor.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4356F9E1B036A210028547E /* encryptor_compressor.txt */; };
 		EA78DDE47183A45CA053BC08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A0F2E80F4D62150DD6E536 /* Foundation.framework */; };
 		EDF5EF4ED93EE571716A513E /* CompresJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B622FFD3E99BEA9C845D1D2 /* CompresJsonRequest.swift */; };
 		F1754AD90A5FF2820378B713 /* NSData+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77E8ABD73F37CB74527080 /* NSData+Extension.swift */; };
@@ -299,7 +300,8 @@
 		E0C29ED6127C0D368F1AF5FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2AF17FCFDCB898BFC502328 /* Pods-ABToolKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ABToolKit-acknowledgements.plist"; sourceTree = "<group>"; };
 		E3E4E658AC9FB958A303C308 /* Pods-Tests-FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
-		E4490FC21B036833009BBAF8 /* encryptor_compressor.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = encryptor_compressor.txt; sourceTree = "<group>"; };
+		E4356F9D1B036A210028547E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		E4356F9E1B036A210028547E /* encryptor_compressor.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = encryptor_compressor.txt; sourceTree = "<group>"; };
 		E88A8A15B537E1F23B247858 /* Pods-Tests-ABToolKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-Tests-ABToolKit-dummy.m"; path = "../Pods-Tests-ABToolKit/Pods-Tests-ABToolKit-dummy.m"; sourceTree = "<group>"; };
 		EC6A1F27E1587FDC35807F5F /* Pods-ABToolKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABToolKit.debug.xcconfig"; sourceTree = "<group>"; };
 		F049F9FC02FB773977341035 /* Pods-ABToolKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ABToolKit.modulemap"; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 		8402814DDEE7CBE5FFE7E3DB /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				E4356F9C1B036A210028547E /* Assets */,
 				1DF8AD542D8EB48C593B743D /* Classes */,
 			);
 			path = Pod;
@@ -616,7 +619,6 @@
 		911598B06C9F52A371692E4F /* CompresJSON */ = {
 			isa = PBXGroup;
 			children = (
-				E4490FC21B036833009BBAF8 /* encryptor_compressor.txt */,
 				B4144158886830376DC5AB8F /* CompresJSON.swift */,
 				00D643DAEA35C53BB9839359 /* CompresJSONObject.swift */,
 				4302683D72E29929C8F3BA8B /* CompresJSONSettings.swift */,
@@ -728,6 +730,15 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Tests-FBSnapshotTestCase";
+			sourceTree = "<group>";
+		};
+		E4356F9C1B036A210028547E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E4356F9D1B036A210028547E /* .gitkeep */,
+				E4356F9E1B036A210028547E /* encryptor_compressor.txt */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		F8C0B3CC0B7810AC4DC0541B /* JsonRequest */ = {
@@ -1082,8 +1093,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4490FC31B036833009BBAF8 /* encryptor_compressor.txt in Resources */,
 				ABFC4B696D898BBF0D952FE4 /* ABToolKit.bundle in Resources */,
+				E4356FA01B036A210028547E /* encryptor_compressor.txt in Resources */,
+				E4356F9F1B036A210028547E /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
