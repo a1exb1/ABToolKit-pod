@@ -19,7 +19,7 @@
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
     "ABToolKit": [
-      "Pod/Assets/*.png"
+      "Pod/Assets/*.{xib,png,jpeg,jpg,txt}"
     ]
   },
   "dependencies": {

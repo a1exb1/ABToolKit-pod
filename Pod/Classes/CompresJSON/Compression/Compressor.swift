@@ -9,19 +9,19 @@
 import UIKit
 
 private let kAnalyzer = JavaScriptAnalyzer.sharedInstance()
-private let kScriptPath = "encryptor_compressor"
+private let kScriptPath = "ABToolKit/encryptor_compressor"
 
 class Compressor: NSObject {
    
     class func compress(str: String) -> String {
         
-        kAnalyzer.loadScriptInternally(kScriptPath)
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Compress", args: [str]).toString()
     }
     
     class func decompress(str: String) -> String {
         
-        kAnalyzer.loadScriptInternally(kScriptPath)
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Decompress", args: [str]).toString()
     }
     
