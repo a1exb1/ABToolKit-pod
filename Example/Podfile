@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'ABToolKit', :exclusive => true do
+  pod "ABToolKit", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "ABToolKit", :path => "../"
+
+  pod 'FBSnapshotTestCase'
+end
