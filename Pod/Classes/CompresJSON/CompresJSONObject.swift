@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 public class CompresJSONObject: JSONObject {
    
@@ -17,6 +18,25 @@ public class CompresJSONObject: JSONObject {
             CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
                 completion(object: self.createObjectFromJson(json) as T)
+            }
+        }
+    }
+    
+    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, id:Int, completion: (objects:[T]) -> () ) {
+        
+        if let url = T.webApiUrls().getMultipleUrl() {
+            
+            CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+                
+                var objects = [T]()
+                
+                for (index: String, objectJSON: JSON) in json {
+                    
+                    var object:T = self.createObjectFromJson(objectJSON)
+                    objects.append(object)
+                }
+                
+                completion(objects: objects)
             }
         }
     }
