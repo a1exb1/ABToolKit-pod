@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "Alamofire": [
-      "~> 1.1"
+      "~> 1.2.1"
     ],
     "SwiftyJSON": [
-
+      "~> 2.2.0"
     ]
   }
 }
