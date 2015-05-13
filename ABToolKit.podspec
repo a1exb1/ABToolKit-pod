@@ -38,4 +38,6 @@ Pod::Spec.new do |s|
   #
     s.dependency 'Alamofire', '~> 1.1'
     s.dependency 'SwiftyJSON'
+
+# s. prefix_header_contents = "import Alamofire import SwiftyJSON"
 end

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 
 class JsonRequest: NSObject {
     
     internal var urlString = ""
-    internal var method: Method = .GET
+    internal var method: Alamofire.Method = .GET
     internal var parameters: Dictionary<String, AnyObject>?
     
     var almofireRequest: Request?
@@ -25,12 +27,12 @@ class JsonRequest: NSObject {
     
     internal var finishDownloadClosures: [() -> ()] = []
     
-    class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Method) -> T {
+    class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) -> T {
         
         return JsonRequest(urlString: urlString, parameters: parameters, method: method) as! T
     }
     
-    internal convenience init(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Method) {
+    internal convenience init(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) {
         self.init()
         
         self.urlString = urlString
@@ -116,7 +118,7 @@ class JsonRequest: NSObject {
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        self.almofireRequest = request(method, urlString, parameters: parameters, encoding: ParameterEncoding.URL)
+        self.almofireRequest = Alamofire.request(method, urlString, parameters: parameters, encoding: ParameterEncoding.URL)
             .response{ (request, response, data, error) in
                 
                 if let e = error {
