@@ -10,7 +10,7 @@ import UIKit
 
 public class CompresJSONObject: JSONObject {
    
-    class func compresJsonWebApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) {
+    public class func compresJsonWebApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) {
         
         if let url = T.webApiUrls().getUrl(id) {
             
