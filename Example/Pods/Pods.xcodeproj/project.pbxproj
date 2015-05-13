@@ -58,11 +58,9 @@
 		8598242B0CC52B1D0245112C /* Pods-Tests-ABToolKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EFA90ECA343E0F3D685A3C1B /* Pods-Tests-ABToolKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DA8D1735ECF48A6F38B8168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7C1BE291FAD3602685889B /* Foundation.framework */; };
 		94472BF1C1454935415FDBC9 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC487EC6D0A6DD96ED95BC4B /* JSONObject.swift */; };
-		980771B66B73DFC3246C2498 /* encryptor_compressor.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B199D4DEFD31BB08E79A1D6 /* encryptor_compressor.txt */; };
 		9AFF3004444A531D2318FAD2 /* Pods-Tests-FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E2771FFCBB9F56E5D2BF464 /* Pods-Tests-FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B4CE9AFCBD547FC5B8AA0CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7C1BE291FAD3602685889B /* Foundation.framework */; };
 		9EA067A61AF4613E576D47B0 /* Pods-Tests-FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D0B20DC07A1B50DE6987E /* Pods-Tests-FBSnapshotTestCase-dummy.m */; };
-		A41EAA9ED8E846612973EA93 /* encryptor_compressor.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B199D4DEFD31BB08E79A1D6 /* encryptor_compressor.txt */; };
 		A53C91859953E9DB780065BF /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 327BB5D1AF930E9B540000FE /* FBSnapshotTestCasePlatform.m */; };
 		A5B97D2F81FED081FDD02013 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EC4C892199C4A6F280E5DE /* Encryptor.swift */; };
 		A5F53A2D8C941369EA336321 /* WebApiDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DA3E33E02EC8D983E36636 /* WebApiDefaults.swift */; };
@@ -86,6 +84,8 @@
 		DC30EAA3C66C83288772D330 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EC4C892199C4A6F280E5DE /* Encryptor.swift */; };
 		E006D02F9AE4892CE4916528 /* cjson_String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9FBB10EFECE13EE4429672 /* cjson_String+Extension.swift */; };
 		E37042779E18D93CCFCE39C3 /* CompresJSONSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB923E09C052EFDB735479C /* CompresJSONSettings.swift */; };
+		E4356FA41B0370960028547E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = E4356FA21B0370960028547E /* .gitkeep */; };
+		E4356FA51B0370960028547E /* encryptor_compressor.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4356FA31B0370960028547E /* encryptor_compressor.txt */; };
 		E881823AD3FC88FB0BF8C216 /* cjson_String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9FBB10EFECE13EE4429672 /* cjson_String+Extension.swift */; };
 		EA47FF0380F7998A47EF31F2 /* Pods-Tests-SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0B6DD8DC63AF734E7EDDF5 /* Pods-Tests-SwiftyJSON-dummy.m */; };
 		F69FEE24AB5B010EDE01248F /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 44E7DC5F3606E98BB3F16066 /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -248,7 +248,6 @@
 		6E97A3C93B97706CDD91A219 /* Pods-ABToolKit-Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ABToolKit-Alamofire-dummy.m"; sourceTree = "<group>"; };
 		7789E7B97DDE15B6227FD8C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AD0596EA544F0241B407FC1 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B199D4DEFD31BB08E79A1D6 /* encryptor_compressor.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = encryptor_compressor.txt; sourceTree = "<group>"; };
 		8101EC4B0010144C8C23AB38 /* Pods-ABToolKit-ABToolKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABToolKit-ABToolKit.xcconfig"; sourceTree = "<group>"; };
 		81FB2E744C9C70E400A4E4AD /* Pods-ABToolKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ABToolKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		836B0EC69B1632CB73A89527 /* Pods-Tests-Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-Tests-Alamofire-umbrella.h"; path = "../Pods-Tests-Alamofire/Pods-Tests-Alamofire-umbrella.h"; sourceTree = "<group>"; };
@@ -299,6 +298,8 @@
 		DD5D6CD37401DBAAA89D1059 /* JSONMappingDefaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONMappingDefaults.swift; sourceTree = "<group>"; };
 		E0A42365611F1FFD58CFE099 /* Pods-ABToolKit-SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABToolKit-SwiftyJSON.xcconfig"; sourceTree = "<group>"; };
 		E1E089B238CDCE1787D9FEAB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		E4356FA21B0370960028547E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		E4356FA31B0370960028547E /* encryptor_compressor.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = encryptor_compressor.txt; sourceTree = "<group>"; };
 		E559AB906DF99026306A8267 /* ABToolKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ABToolKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69A5C7B6B4CD47532D53D30 /* Pods-Tests-FBSnapshotTestCase-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-FBSnapshotTestCase-Private.xcconfig"; sourceTree = "<group>"; };
 		E749A2296432029E3522438A /* Pods-ABToolKit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ABToolKit-frameworks.sh"; sourceTree = "<group>"; };
@@ -542,7 +543,6 @@
 		31CC0FFD654866A2105B63B9 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				804E486B99941411741D0FDD /* Assets */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
@@ -558,6 +558,7 @@
 		3FD6F5A9D05E6926A601D956 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				E4356FA11B0370960028547E /* Assets */,
 				CDD1A374C4DB6B61EBBD9BD3 /* Classes */,
 			);
 			path = Pod;
@@ -638,14 +639,6 @@
 			path = CompresJSON;
 			sourceTree = "<group>";
 		};
-		804E486B99941411741D0FDD /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				7B199D4DEFD31BB08E79A1D6 /* encryptor_compressor.txt */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		9AFE61B3B9F85E9A1153DAD6 /* Compression */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +694,15 @@
 				F63BA77A4C08D9183986EBA2 /* SwiftyJSON */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4356FA11B0370960028547E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E4356FA21B0370960028547E /* .gitkeep */,
+				E4356FA31B0370960028547E /* encryptor_compressor.txt */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		E79785FB10CE0B93077C0224 /* Resources */ = {
@@ -1098,6 +1100,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C18E5C25E284CF569697429E /* ABToolKit.bundle in Resources */,
+				E4356FA51B0370960028547E /* encryptor_compressor.txt in Resources */,
+				E4356FA41B0370960028547E /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,7 +1117,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				980771B66B73DFC3246C2498 /* encryptor_compressor.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1121,7 +1124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A41EAA9ED8E846612973EA93 /* encryptor_compressor.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
