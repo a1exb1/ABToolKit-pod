@@ -27,7 +27,7 @@ public class CompresJSONObject: JSONObject {
         if let url = T.webApiUrls().getMultipleUrl() {
             
             CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
-                
+                println(json)
                 var objects = [T]()
                 
                 for (index: String, objectJSON: JSON) in json {
