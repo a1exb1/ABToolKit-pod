@@ -9,7 +9,7 @@
 import UIKit
 
 private let kAnalyzer = JavaScriptAnalyzer.sharedInstance()
-private let kScriptPath = "ABToolKit/encryptor_compressor"
+private let kScriptPath = "ABToolKit.bundle/encryptor_compressor"
 
 class Encryptor: NSObject {
    
