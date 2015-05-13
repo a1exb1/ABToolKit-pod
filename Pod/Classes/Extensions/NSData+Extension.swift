@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension NSData {
+public extension NSData {
  
-    func toString() -> String{
+    public func toString() -> String{
         
         return String(NSString(data: self, encoding: NSUTF8StringEncoding)!)
     }
     
-    func base64NSString() -> String {
+    public func base64NSString() -> String {
         
         return String(self.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros))
     }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension String {
+public extension String {
     
-    func charCount() -> Int {
+    public func charCount() -> Int {
         
         return count(self.utf16)
     }
     
-    func contains(find: String) -> Bool {
+    public func contains(find: String) -> Bool {
         
         if let temp = self.rangeOfString(find) {
             return true
@@ -23,11 +23,11 @@ extension String {
         return false
     }
     
-    func replaceString(string:String, withString:String) -> String {
+    public func replaceString(string:String, withString:String) -> String {
         return self.stringByReplacingOccurrencesOfString(string, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
-    func NSDataFromBase64String() -> NSData {
+    public func NSDataFromBase64String() -> NSData {
         
         return NSData(base64EncodedString: self, options: NSDataBase64DecodingOptions.allZeros)!
     }

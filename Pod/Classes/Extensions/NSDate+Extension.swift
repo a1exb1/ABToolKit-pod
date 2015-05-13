@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension NSDate {
+public extension NSDate {
     
-    class func dateFromString(dateString:String, format:String) -> NSDate{
+    public class func dateFromString(dateString:String, format:String) -> NSDate{
         //var s = dateString.stringByReplacingOccurrencesOfString("\\", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as String
         //s = dateString.stringByReplacingOccurrencesOfString("T", withString: " ", options: NSStringCompareOptions.LiteralSearch, range: nil)
         let dateFormatter = NSDateFormatter()
@@ -18,14 +18,14 @@ extension NSDate {
         return dateFormatter.dateFromString(dateString)!
     }
     
-    func toString(format:String?) -> String{
+    public func toString(format:String?) -> String{
         var f = format != nil ? format : "dd/MM/yyyy HH:mm:ss"
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = f
         return dateFormatter.stringFromDate(self)
     }
     
-     func toISOString() -> String {
+    public func toISOString() -> String {
         var dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT")
@@ -34,7 +34,7 @@ extension NSDate {
         return dateFormatter.stringFromDate(self).stringByAppendingString("+00:00Z")
     }
     
-     class func dateFromISOString(string: String) -> NSDate {
+     public class func dateFromISOString(string: String) -> NSDate {
         var dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         dateFormatter.timeZone = NSTimeZone.localTimeZone()

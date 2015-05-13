@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UIAlertController {
+public extension UIAlertController {
     
-    func show() {
+    public func show() {
 
         UIViewController.topMostController().presentViewController(self, animated: true) { () -> Void in
         }

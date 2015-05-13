@@ -47,7 +47,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     var jsonMappingDelegate: JsonMappingDelegate?
     var webApiManager = WebApiManager()
     
-    class func webApiUrls() -> WebApiManager {
+    public class func webApiUrls() -> WebApiManager {
         
         return WebApiManager()
     }
@@ -59,7 +59,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         self.webApiManagerDelegate = self
     }
     
-    class func requestObjectWithID(id: Int) -> JsonRequest? {
+    public class func requestObjectWithID(id: Int) -> JsonRequest? {
      
         if let url = self.webApiUrls().getUrl(id) {
             
@@ -69,7 +69,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) {
+    public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) {
         
         if let url = T.webApiUrls().getUrl(id) {
          

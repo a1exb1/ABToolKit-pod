@@ -10,13 +10,13 @@ import UIKit
 
 
 
-class WebApiManager: NSObject {
+public class WebApiManager: NSObject {
    
     var domain: String?
     var restKey: String?
     //var webApiManagerDelegate: WebApiManagerDelegate?
     
-    func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
+    public func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
         
         self.domain = overrideDomain
         self.restKey = restKey
@@ -24,7 +24,7 @@ class WebApiManager: NSObject {
         return self
     }
     
-    func setupUrlsForREST(key: String) -> WebApiManager {
+    public func setupUrlsForREST(key: String) -> WebApiManager {
         
         return setupUrlsForREST(key, overrideDomain: nil)
     }
@@ -56,7 +56,7 @@ class WebApiManager: NSObject {
         return validRestUrlSet() ? "\(getDomain())/api/\(restKey!)" : nil
     }
     
-    func updateUrl(id: Int?) -> String? {
+    public func updateUrl(id: Int?) -> String? {
         
         if let id = id {
             
@@ -66,22 +66,22 @@ class WebApiManager: NSObject {
         return nil
     }
     
-    func insertUrl() -> String? {
+    public func insertUrl() -> String? {
         
         return staticUrl()
     }
     
-    func getUrl(id: Int) -> String? {
+    public func getUrl(id: Int) -> String? {
         
         return mutableUrl(id)
     }
     
-    func getMultipleUrl() -> String? {
+    public func getMultipleUrl() -> String? {
         
         return staticUrl()
     }
     
-    func deleteUrl(id: Int?) -> String? {
+    public func deleteUrl(id: Int?) -> String? {
         
         if let id = id {
             
@@ -91,7 +91,7 @@ class WebApiManager: NSObject {
         return nil
     }
     
-    func validRestUrlSet() -> Bool {
+    public func validRestUrlSet() -> Bool {
      
         return restKey != nil
     }

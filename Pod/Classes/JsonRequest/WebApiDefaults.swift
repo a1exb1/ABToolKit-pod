@@ -11,10 +11,10 @@ import UIKit
 let kWebApiDefaultsSharedInstance = WebApiDefaults()
 
 
-class WebApiDefaults: NSObject {
+public class WebApiDefaults: NSObject {
  
     var domain: String?
-    class func sharedInstance() -> WebApiDefaults {
+    public class func sharedInstance() -> WebApiDefaults {
         
         return kWebApiDefaultsSharedInstance
     }

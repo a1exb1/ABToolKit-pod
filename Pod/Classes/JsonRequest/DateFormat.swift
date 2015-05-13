@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum DateFormat: String {
+public enum DateFormat: String {
     
     case Date = "dd/MM/yyyy"
     case DateTime = "dd/MM/yyyy HH:mm"
