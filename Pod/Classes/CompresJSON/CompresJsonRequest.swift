@@ -28,7 +28,7 @@ public class CompresJsonRequest: JsonRequest {
             
             //NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted, error: <#NSErrorPointer#>)
             //json = json.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            //json = json.replaceString("\"", withString: "#")
+            json = json.replaceString("\"", withString: "#")
             //println("json: \(json)")
             json = CompresJSON.encryptAndCompressAsNecessary(json)
             
