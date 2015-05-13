@@ -41,7 +41,7 @@ public class JavaScriptAnalyzer: NSObject {
     func loadScriptInternally(name: String) {
         
         //var bundlePath = NSBundle.mainBundle().pathForResource("ABToolKitResources", ofType: "bundle")!
-        var bundlePath = NSBundle.mainBundle().pathForResource("ABToolKitResources", ofType: "bundle", inDirectory: nil)
+        var bundlePath = NSBundle.mainBundle().pathForResource("ABToolKitResources", ofType: "bundle", inDirectory: nil)!
         var bundle = NSBundle(path: bundlePath)!
         
         //var bundle: NSBundle = NSBundle(identifier: "ABToolkit")!
