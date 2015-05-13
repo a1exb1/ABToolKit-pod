@@ -1,0 +1,17 @@
+PODS:
+  - ABToolKit (0.1.0)
+  - FBSnapshotTestCase (1.8.1)
+
+DEPENDENCIES:
+  - ABToolKit (from `../`)
+  - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  ABToolKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ABToolKit: 0cac8c17fd2f66dff4ebdd6312060014838e200f
+  FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
+
+COCOAPODS: 0.37.1
