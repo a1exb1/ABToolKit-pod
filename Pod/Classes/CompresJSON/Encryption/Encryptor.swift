@@ -17,7 +17,7 @@ class Encryptor: NSObject {
         
         Encryptor.printErrorIfEncryptionKeyIsNotSet()
         
-        kAnalyzer.loadScriptInternally(kScriptPath)
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Encrypt", args: [str, key]).toString()
     }
     
@@ -25,7 +25,7 @@ class Encryptor: NSObject {
         
         Encryptor.printErrorIfEncryptionKeyIsNotSet()
         
-        kAnalyzer.loadScriptInternally(kScriptPath)
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Decrypt", args: [str, key]).toString()
     }
     

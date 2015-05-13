@@ -28,16 +28,16 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-#s.resource_bundles = {
-#   'ABToolKitResources' => ['Pod/Assets/*.*']
-# }
-
-  s.resource_bundle = {
-    'ABToolKitAssets' => [
-        'Pod/Assets/encryptor_compressor.txt',
-        'Assets/encryptor_compressor.txt'
-    ]
+  s.resource_bundles = {
+   'ABToolKit' => ['Pod/Assets/*.*']
   }
+
+# s.resource_bundle = {
+#   'ABToolKitAssets' => [
+#       'Pod/Assets/encryptor_compressor.txt',
+#       'Assets/encryptor_compressor.txt'
+#   ]
+#}
 # s.resource = "ABToolKitResources.bundle"
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

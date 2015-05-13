@@ -15,13 +15,13 @@ class Compressor: NSObject {
    
     class func compress(str: String) -> String {
         
-        kAnalyzer.loadScriptInternally(kScriptPath)
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Compress", args: [str]).toString()
     }
     
     class func decompress(str: String) -> String {
         
-        kAnalyzer.loadScriptInternally(kScriptPath)
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Decompress", args: [str]).toString()
     }
     
