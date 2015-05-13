@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.resource_bundle = {
     'ABToolKitAssets' => [
         'Pod/Assets/encryptor_compressor.txt',
-        'Pod/Assets/encryptor_compressor.txt'
+        'Assets/encryptor_compressor.txt'
     ]
   }
 # s.resource = "ABToolKitResources.bundle"
