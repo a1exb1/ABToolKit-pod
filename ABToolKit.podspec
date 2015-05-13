@@ -29,8 +29,10 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-   'ABToolKit' => ['Pod/Assets/*.*']
+   'ABToolKit' => ['*.*']
   }
+
+  s.
 
 # s.resource_bundle = {
 #   'ABToolKitAssets' => [
