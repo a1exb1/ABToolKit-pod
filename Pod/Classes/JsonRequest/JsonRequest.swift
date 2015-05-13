@@ -27,7 +27,7 @@ public class JsonRequest: NSObject {
     
     internal var finishDownloadClosures: [() -> ()] = []
     
-    class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) -> T {
+    public class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) -> T {
         
         return JsonRequest(urlString: urlString, parameters: parameters, method: method) as! T
     }
@@ -42,29 +42,29 @@ public class JsonRequest: NSObject {
         exec()
     }
     
-    func onDownloadSuccess(success: (json: JSON, request: JsonRequest) -> ()) -> Self {
+    public func onDownloadSuccess(success: (json: JSON, request: JsonRequest) -> ()) -> Self {
         self.succeedDownloadClosures.append(success)
         return self
     }
     
-    func onContextSuccess(success: () -> ()) -> Self {
+    public func onContextSuccess(success: () -> ()) -> Self {
         self.succeedContextClosures.append(success)
         return self
     }
     
     
-    func onDownloadFailure(failure: (error: NSError, alert: UIAlertController) -> ()) -> Self {
+    public func onDownloadFailure(failure: (error: NSError, alert: UIAlertController) -> ()) -> Self {
         self.failDownloadClosures.append(failure)
         return self
     }
     
-    func onContextFailure(failure: () -> ()) -> Self {
+    public func onContextFailure(failure: () -> ()) -> Self {
         self.failContextClosures.append(failure)
         return self
     }
     
     
-    func onDownloadFinished(finished: () -> ()) -> Self {
+    public func onDownloadFinished(finished: () -> ()) -> Self {
         self.finishDownloadClosures.append(finished)
         return self
     }
@@ -79,7 +79,7 @@ public class JsonRequest: NSObject {
         }
     }
     
-    func succeedContext() {
+    public func succeedContext() {
         
         for closure in self.succeedContextClosures {
             
@@ -96,7 +96,7 @@ public class JsonRequest: NSObject {
         }
     }
     
-    func failContext() {
+    public func failContext() {
         
         for closure in self.failContextClosures {
             
@@ -163,7 +163,7 @@ public class JsonRequest: NSObject {
         return alertController
     }
     
-    func cancel() {
+    public func cancel() {
         
         self.almofireRequest?.cancel()
     }
