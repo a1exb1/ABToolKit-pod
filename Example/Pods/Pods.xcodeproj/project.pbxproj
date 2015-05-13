@@ -29,7 +29,6 @@
 		E4D67E291B034DD30069CE39 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E161B034DD30069CE39 /* String+Extension.swift */; };
 		E4D67E2A1B034DD30069CE39 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E171B034DD30069CE39 /* UIAlertController+Extension.swift */; };
 		E4D67E2B1B034DD30069CE39 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E181B034DD30069CE39 /* UIViewController+Extension.swift */; };
-		E4D67E2C1B034DD30069CE39 /* Almofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E1A1B034DD30069CE39 /* Almofire.swift */; };
 		E4D67E2E1B034DD30069CE39 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E1D1B034DD30069CE39 /* DateFormat.swift */; };
 		E4D67E2F1B034DD30069CE39 /* JSONMappingDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E1E1B034DD30069CE39 /* JSONMappingDefaults.swift */; };
 		E4D67E301B034DD30069CE39 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D67E1F1B034DD30069CE39 /* JSONObject.swift */; };
@@ -106,7 +105,6 @@
 		E4D67E161B034DD30069CE39 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E4D67E171B034DD30069CE39 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		E4D67E181B034DD30069CE39 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		E4D67E1A1B034DD30069CE39 /* Almofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Almofire.swift; sourceTree = "<group>"; };
 		E4D67E1D1B034DD30069CE39 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		E4D67E1E1B034DD30069CE39 /* JSONMappingDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMappingDefaults.swift; sourceTree = "<group>"; };
 		E4D67E1F1B034DD30069CE39 /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 		E4D67E191B034DD30069CE39 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				E4D67E1A1B034DD30069CE39 /* Almofire.swift */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -543,7 +540,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4D67E2C1B034DD30069CE39 /* Almofire.swift in Sources */,
 				E4D67E2A1B034DD30069CE39 /* UIAlertController+Extension.swift in Sources */,
 				E4D67E281B034DD30069CE39 /* NSDate+Extension.swift in Sources */,
 				E4D67E301B034DD30069CE39 /* JSONObject.swift in Sources */,

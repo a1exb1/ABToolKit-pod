@@ -9,7 +9,7 @@
     "Alex Bechmann": "alex_bechmann@hotmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/ABToolKit.git",
+    "git": "https://github.com/a1exb1/ABToolKit-pod.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -20,6 +20,14 @@
   "resource_bundles": {
     "ABToolKit": [
       "Pod/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "Alamofire": [
+      "~> 1.1"
+    ],
+    "SwiftyJSON": [
+
     ]
   }
 }
