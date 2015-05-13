@@ -33,11 +33,11 @@ class KeyWithType {
 //}
 
 protocol WebApiManagerDelegate {
-    func webApiRestObjectID() -> Int?
+    public func webApiRestObjectID() -> Int?
 }
 
 @objc protocol JsonMappingDelegate {
-    optional func registerClassesForJsonMapping()
+    optional public func registerClassesForJsonMapping()
 }
 
 public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
@@ -332,18 +332,18 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
 //        registerDate(forKey, jsonKey: forKey, format: JSONMappingDefaults.sharedInstance().dateFormat)
 //    }
     
-    func registerClassesForJsonMapping() {
+    public func registerClassesForJsonMapping() {
         
     }
     
     // MARK: - Web Api Methods
     
-    func webApiInsert() -> JsonRequest?{
+    public func webApiInsert() -> JsonRequest?{
         
         return webApiInsert(nil)
     }
     
-    func webApiInsert(keysToInclude: Array<String>?) -> JsonRequest?{
+    public func webApiInsert(keysToInclude: Array<String>?) -> JsonRequest?{
         
         if let url = self.dynamicType.webApiUrls().insertUrl() {
         
@@ -358,12 +358,12 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    func webApiUpdate() -> JsonRequest?{
+    public func webApiUpdate() -> JsonRequest?{
         
         return webApiUpdate(nil)
     }
     
-    func webApiUpdate(keysToInclude: Array<String>?) -> JsonRequest?{
+    public func webApiUpdate(keysToInclude: Array<String>?) -> JsonRequest?{
         
         if let url = self.dynamicType.webApiUrls().updateUrl(webApiManagerDelegate?.webApiRestObjectID()) {
             
@@ -377,7 +377,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    func webApiDelete() -> JsonRequest?{
+    public func webApiDelete() -> JsonRequest?{
         
         if let url = self.dynamicType.webApiUrls().deleteUrl(webApiManagerDelegate?.webApiRestObjectID()) {
 
@@ -395,7 +395,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
 //        
 //    }
     
-    func webApiRestObjectID() -> Int? {
+    public func webApiRestObjectID() -> Int? {
         
         return nil
     }
