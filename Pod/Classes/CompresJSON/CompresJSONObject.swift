@@ -22,7 +22,7 @@ public class CompresJSONObject: JSONObject {
         }
     }
     
-    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, id:Int, completion: (objects:[T]) -> () ) {
+    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) {
         
         if let url = T.webApiUrls().getMultipleUrl() {
             
