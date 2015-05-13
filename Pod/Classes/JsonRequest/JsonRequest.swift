@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 
-class JsonRequest: NSObject {
+public class JsonRequest: NSObject {
     
     internal var urlString = ""
     internal var method: Alamofire.Method = .GET

@@ -40,7 +40,7 @@ protocol WebApiManagerDelegate {
     optional func registerClassesForJsonMapping()
 }
 
-class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
+public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     private var classMappings = Dictionary<String, Mapping>()
     var webApiManagerDelegate: WebApiManagerDelegate?
@@ -52,7 +52,7 @@ class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return WebApiManager()
     }
     
-    required override init() {
+    required override public init() {
         super.init()
         
         self.jsonMappingDelegate = self
