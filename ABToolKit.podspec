@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'ABToolKitResources' => ['Pod/Assets/*.txt']
   }
+  s.resource = "ABToolKitResources.bundle"
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
