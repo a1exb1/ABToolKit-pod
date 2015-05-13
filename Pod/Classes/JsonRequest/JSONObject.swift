@@ -33,11 +33,11 @@ class KeyWithType {
 //}
 
 protocol WebApiManagerDelegate {
-    public func webApiRestObjectID() -> Int?
+    func webApiRestObjectID() -> Int?
 }
 
 @objc protocol JsonMappingDelegate {
-    optional public func registerClassesForJsonMapping()
+    optional func registerClassesForJsonMapping()
 }
 
 public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
@@ -90,12 +90,12 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
 //        return nil
 //    }
     
-    class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
+    public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
         
         return T.createObjectFromDict(json.dictionaryObject!)
     }
     
-    func setExtraPropertiesFromJSON(json:JSON) {
+    public func setExtraPropertiesFromJSON(json:JSON) {
         
     }
     
@@ -104,13 +104,13 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return ""
     }
 
-    func convertToJSONString(keysToInclude: Array<String>?, includeNestedProperties: Bool) -> String {
+    public func convertToJSONString(keysToInclude: Array<String>?, includeNestedProperties: Bool) -> String {
         
         return "\(convertToJSON(keysToInclude, includeNestedProperties: includeNestedProperties))"
     }
 
     
-    func convertToJSON(keysToInclude: Array<String>?, includeNestedProperties: Bool) -> JSON {
+    public func convertToJSON(keysToInclude: Array<String>?, includeNestedProperties: Bool) -> JSON {
         
         return JSON(convertToDictionary(keysToInclude, includeNestedProperties: includeNestedProperties))
     }
@@ -286,14 +286,14 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         }
     }
     
-    class func createObjectFromDict< T : JSONObject >(dict: Dictionary<String, AnyObject?>) -> T {
+    public class func createObjectFromDict< T : JSONObject >(dict: Dictionary<String, AnyObject?>) -> T {
         
         var obj = T()
         obj.setPropertiesFromDictionary(dict)
         return obj
     }
     
-    private func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String, format: String?) {
+    public func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String, format: String?) {
         
         var mapping = Mapping()
         mapping.mClass = anyClass
@@ -307,22 +307,22 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         classMappings[propertyKey] = mapping
     }
     
-    func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String) {
+    public func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String) {
         
         registerClass(anyClass, propertyKey: propertyKey, jsonKey: jsonKey, format: nil)
     }
     
-    func registerClass(anyClass: AnyClass, forKey: String) {
+    public func registerClass(anyClass: AnyClass, forKey: String) {
         
         registerClass(anyClass, propertyKey: forKey, jsonKey: forKey)
     }
     
-    func registerDate(propertyKey: String, jsonKey: String, format: String) {
+    public func registerDate(propertyKey: String, jsonKey: String, format: String) {
         
         registerClass(NSDate.self, propertyKey: propertyKey, jsonKey: jsonKey, format: format)
     }
     
-    func registerDate(forKey: String, format: String) {
+    public func registerDate(forKey: String, format: String) {
         
         registerDate(forKey, jsonKey: forKey, format: format)
     }
