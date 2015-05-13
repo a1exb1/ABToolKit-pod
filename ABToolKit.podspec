@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
-    'ABToolKit' => ['Pod/Assets/*.{xib,png,jpeg,jpg,txt}']
+    'ABToolKitResources' => ['Pod/Assets/*.txt']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
