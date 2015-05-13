@@ -36,8 +36,8 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   #
-    s.dependency 'Alamofire', '~> 1.1'
-    s.dependency 'SwiftyJSON'
+    s.dependency 'Alamofire', '~> 1.2.1'
+    s.dependency 'SwiftyJSON', '~> 2.2.0'
 
 # s. prefix_header_contents = "import Alamofire import SwiftyJSON"
 end
