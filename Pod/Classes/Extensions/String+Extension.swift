@@ -35,4 +35,13 @@ public extension String {
     public func urlEncode() -> String {
         return self.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
     }
+    
+    public func base64String() -> String {
+        
+        return self.toData().base64String()
+    }
+    
+    public func toData() -> NSData {
+        return (self as NSString).dataUsingEncoding(NSUTF8StringEncoding)!
+    }
 }
