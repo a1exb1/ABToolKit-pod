@@ -97,7 +97,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         for (key: String, subJson: JSON) in json {
             
             println(json[key].type)
-            println(json[key])
+            println(json[key].stringValue)
             println(json)
             
             //if let value = {
