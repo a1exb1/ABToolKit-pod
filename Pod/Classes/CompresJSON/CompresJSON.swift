@@ -32,7 +32,7 @@ public class CompresJSON: NSObject {
         
         if CompresJSON.sharedInstance().settings.shouldEncrypt {
             
-            rc = Encryptor.encrypt(compressedString, key: CompresJSON.sharedInstance().settings.encryptionKey)
+            rc = Encryptor.encrypt(rc, key: CompresJSON.sharedInstance().settings.encryptionKey)
         }
         
         return rc
@@ -46,7 +46,7 @@ public class CompresJSON: NSObject {
         
         if CompresJSON.sharedInstance().settings.shouldEncrypt {
             
-            rc = Encryptor.decrypt(compressedString, key: CompresJSON.sharedInstance().settings.encryptionKey)
+            rc = Encryptor.decrypt(rc, key: CompresJSON.sharedInstance().settings.encryptionKey)
         }
         
         if CompresJSON.sharedInstance().settings.shouldCompress {
