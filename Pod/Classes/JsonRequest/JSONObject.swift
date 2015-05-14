@@ -92,6 +92,20 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
         
+        //var dict = Dictionary<String, AnyObject?>()
+        
+        for (key: String, subJson: JSON) in json {
+            
+            println(json[key].type)
+            println(json[key])
+            println(json)
+            
+            if json[key] == NSNull {
+                
+                json[key] = nil
+            }
+        }
+        
         return T.createObjectFromDict(json.dictionaryObject!)
     }
     

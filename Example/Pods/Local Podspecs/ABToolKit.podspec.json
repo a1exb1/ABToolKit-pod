@@ -18,8 +18,8 @@
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
-    "ABToolKitResources": [
-      "Pod/Assets/*.txt"
+    "ABToolKit": [
+      "Pod/Assets/*.*"
     ]
   },
   "dependencies": {
