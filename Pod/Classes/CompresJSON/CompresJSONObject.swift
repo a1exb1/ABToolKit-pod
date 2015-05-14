@@ -31,7 +31,7 @@ public class CompresJSONObject: JSONObject {
                 var objects = [T]()
                 
                 for (index: String, objectJSON: JSON) in json {
-                    
+                    println("loop1: \(objectJSON)")
                     var object:T = self.createObjectFromJson(objectJSON)
                     objects.append(object)
                 }
