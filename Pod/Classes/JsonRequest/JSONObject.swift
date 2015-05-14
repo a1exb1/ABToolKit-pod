@@ -92,7 +92,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
         
-        //var dict = Dictionary<String, AnyObject?>()
+        var dict = Dictionary<String, AnyObject?>()
         
         for (key: String, subJson: JSON) in json {
             
@@ -100,13 +100,15 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
             println(json[key])
             println(json)
             
-            if json[key] == NSNull {
+            //if let value = {
                 
-                json[key] = nil
-            }
+                dict[key] = json[key].object
+            //}
+            
+            
         }
-        
-        return T.createObjectFromDict(json.dictionaryObject!)
+        return T.createObjectFromDict(dict)
+        //return T.createObjectFromDict(json.dictionaryObject!)
     }
     
     public func setExtraPropertiesFromJSON(json:JSON) {
