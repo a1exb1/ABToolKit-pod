@@ -96,13 +96,13 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         
         for (key: String, subJson: JSON) in json {
             
-            println(subJson[key].type)
-            println(subJson[key])
-            println(subJson)
+            println(json[key].type)
+            println(json[key])
+            println(json)
             
             //if let value = {
                 
-                dict[key] = subJson[key].object
+                dict[key] = json[key].object
             //}
             
             
