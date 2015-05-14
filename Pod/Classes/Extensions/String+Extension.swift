@@ -31,4 +31,8 @@ public extension String {
         
         return NSData(base64EncodedString: self, options: NSDataBase64DecodingOptions.allZeros)!
     }
+    
+    public func urlEncode() -> String {
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+    }
 }
