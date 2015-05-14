@@ -38,7 +38,7 @@ public class CompresJSONObject: JSONObject {
                 "take" : take
             ]
             
-            CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+            CompresJsonRequest.create(url, parameters: params, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
                 var objects = [T]()
                 
