@@ -8,13 +8,16 @@
 
 import UIKit
 
-
+private let kKey = CompresJSON.sharedInstance().settings.encryptionKey
 
 public class WebApiManager: NSObject {
    
     var domain: String?
     var restKey: String?
     //var webApiManagerDelegate: WebApiManagerDelegate?
+    
+    //temp for compresjson
+    var encryptComponents = false
     
     public func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
         
@@ -48,10 +51,27 @@ public class WebApiManager: NSObject {
     
     private func mutableUrl(id: Int) -> String? {
         
+        if encryptComponents {
+            
+            //var secretComponent = Encryptor.encrypt("api", key: kKey)
+            var eRestKey = Encryptor.encrypt(restKey!, key: kKey)
+            var eID = Encryptor.encrypt("\(id)", key: kKey)
+            
+            return validRestUrlSet() ? "\(getDomain())/apih/\(eRestKey)/\(eID)" : nil
+        }
+        
         return validRestUrlSet() ? "\(getDomain())/api/\(restKey!)/\(id)" : nil
     }
     
     private func staticUrl() -> String? {
+        
+        if encryptComponents {
+            
+            //var secretComponent = Encryptor.encrypt("api", key: kKey)
+            var eRestKey = Encryptor.encrypt(restKey!, key: kKey)
+            
+            return validRestUrlSet() ? "\(getDomain())/apih/\(eRestKey)" : nil
+        }
         
         return validRestUrlSet() ? "\(getDomain())/api/\(restKey!)" : nil
     }
