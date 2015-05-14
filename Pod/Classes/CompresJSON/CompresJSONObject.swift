@@ -24,9 +24,21 @@ public class CompresJSONObject: JSONObject {
     
     public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) {
         
+        self.compresJsonWebApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+            completion(objects: objects)
+        }
+    }
+    
+    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) {
+        
         if let url = T.webApiUrls().getMultipleUrl() {
+        
+            var params = [
+                "skip" : skip,
+                "take" : take
+            ]
             
-            CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+            CompresJsonRequest.create(url, parameters: params, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
                 var objects = [T]()
                 
