@@ -33,17 +33,12 @@ public class CompresJSONObject: JSONObject {
         
         if let url = T.webApiUrls().getMultipleUrl() {
         
-            var urlExtension = ""
+            var params = [
+                "skip" : skip,
+                "take" : take
+            ]
             
-            if skip != 0 && take != 0 {
-                
-                urlExtension =
-                    url.contains("?") ? "&" : "?" +
-                    "skip=\(skip)" +
-                "&take=\(take)"
-            }
-            
-            CompresJsonRequest.create(url + urlExtension, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+            CompresJsonRequest.create(url, parameters: params, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
                 var objects = [T]()
                 
