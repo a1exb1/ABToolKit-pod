@@ -12,12 +12,12 @@ private let kKey = CompresJSON.sharedInstance().settings.encryptionKey
 
 public class WebApiManager: NSObject {
    
-    var domain: String?
-    var restKey: String?
+    public var domain: String?
+    public var restKey: String?
     //var webApiManagerDelegate: WebApiManagerDelegate?
     
     //temp for compresjson
-    var encryptComponents = false
+    public var encryptComponents = false
     
     public func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
         
