@@ -9,15 +9,13 @@
 import UIKit
 
 private let kKey = CompresJSON.sharedInstance().settings.encryptionKey
+private let kEncryptComponents = CompresJSON.sharedInstance().settings.encryptUrlComponents
 
 public class WebApiManager: NSObject {
    
     public var domain: String?
     public var restKey: String?
     //var webApiManagerDelegate: WebApiManagerDelegate?
-    
-    //temp for compresjson
-    public var encryptComponents = false
     
     public func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
         
@@ -51,7 +49,7 @@ public class WebApiManager: NSObject {
     
     private func mutableUrl(id: Int) -> String? {
         
-        if encryptComponents {
+        if kEncryptComponents {
             
             //var secretComponent = Encryptor.encrypt("api", key: kKey)
             var eRestKey = encryptSecretUrlComponent(restKey!)
@@ -65,7 +63,7 @@ public class WebApiManager: NSObject {
     
     private func staticUrl() -> String? {
         
-        if encryptComponents {
+        if kEncryptComponents {
             
             //var secretComponent = Encryptor.encrypt("api", key: kKey)
             var eRestKey = encryptSecretUrlComponent(restKey!)
