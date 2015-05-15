@@ -29,7 +29,7 @@ public class CompresJSONObject: JSONObject {
         }
     }
     
-    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) {
+    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
         
         if let url = T.webApiUrls().getMultipleUrl() {
         
@@ -38,9 +38,9 @@ public class CompresJSONObject: JSONObject {
                 "take" : take
             ]
             
-            var objects = [T]()
-            
-            CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+            return CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+                
+                var objects = [T]()
                 
                 for (index: String, objectJSON: JSON) in json {
                     
@@ -48,11 +48,11 @@ public class CompresJSONObject: JSONObject {
                     objects.append(object)
                 }
                 
-            }.onDownloadFinished({ () -> () in
-                
                 completion(objects: objects)
-            })
+            } as? CompresJsonRequest
         }
+        
+        return nil
     }
     
     // MARK: - Web Api Methods
