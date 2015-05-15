@@ -22,9 +22,9 @@ public class CompresJSONObject: JSONObject {
         }
     }
     
-    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) {
+    public class func compresJsonWebApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
         
-        self.compresJsonWebApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+        return self.compresJsonWebApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
             completion(objects: objects)
         }
     }
