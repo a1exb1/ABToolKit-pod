@@ -370,10 +370,15 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         registerDate(forKey, jsonKey: forKey, format: format)
     }
 
-//    func registerDate(forKey: String) {
-//        
-//        registerDate(forKey, jsonKey: forKey, format: JSONMappingDefaults.sharedInstance().dateFormat)
-//    }
+    public func registerDate(forKey: String, jsonKey: String) {
+        
+        registerDate(forKey, jsonKey: jsonKey, format: JSONMappingDefaults.sharedInstance().dateFormat)
+    }
+    
+    public func registerDate(forKey: String) {
+        
+        registerDate(forKey, jsonKey: forKey)
+    }
     
     public func registerClassesForJsonMapping() {
         
