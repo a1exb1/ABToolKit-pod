@@ -237,6 +237,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     func setPropertiesFromDictionary(dict: Dictionary<String, AnyObject?>){
         
         classMappings = Dictionary<String, Mapping>() // this is needed for some reason
+        self.jsonMappingDelegate = self
         jsonMappingDelegate?.registerClassesForJsonMapping?()
         
         for k in keysWithTypes() {
