@@ -97,7 +97,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         
         for (key: String, subJson: JSON) in json {
             
-            if json[key].stringValue != "" {
+            if json[key].stringValue != "" && json[key].arrayValue != [] && json[key].dictionaryObject?.count == 0{
                 
                 dict[key] = json[key].object
             }
