@@ -344,10 +344,10 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         registerClass(nil, propertyKey: propertyKey, jsonKey: jsonKey, format: nil)
     }
     
-    public func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String, format: String?) {
-        
-        registerClass(anyClass, propertyKey: propertyKey, jsonKey: jsonKey, format: format)
-    }
+//    public func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String, format: String?) {
+//        
+//        registerClass(anyClass, propertyKey: propertyKey, jsonKey: jsonKey, format: format)
+//    }
     
     
     public func registerClass(anyClass: AnyClass, propertyKey: String, jsonKey: String) {
