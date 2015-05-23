@@ -116,8 +116,6 @@ public class WebApiManager: NSObject {
     
     private func encryptSecretUrlComponent(str: String) -> String {
         
-        var secretComponent = Encryptor.encrypt(str, key: kKey)
-        //return secretComponent.urlEncode().replaceString("%", withString: "!").replaceString("+", withString: "£").replaceString("/", withString: "$")
-        return secretComponent.base64String()
+        return Encryptor.encrypt(str, key: kKey)
     }
 }
