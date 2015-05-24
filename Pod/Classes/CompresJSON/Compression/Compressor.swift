@@ -15,14 +15,17 @@ class Compressor: NSObject {
    
     class func compress(str: String) -> String {
         
-        kAnalyzer.loadScript(kScriptPath) // LZString for compress
+        kAnalyzer.loadScript(kScriptPath)
         return kAnalyzer.executeJavaScriptFunction("Compress", args: [str]).toString()
     }
     
     class func decompress(str: String) -> String {
         
-        kAnalyzer.loadScript("jsxcompressor.min") // GZIP for decompress
-        return kAnalyzer.executeJavaScriptFunction("JXG.decompress", args: [str]).toString()
+        kAnalyzer.loadScript(kScriptPath)
+        return kAnalyzer.executeJavaScriptFunction("Decompress", args: [str]).toString()
+        
+//        kAnalyzer.loadScript("jsxcompressor.min") // GZIP for decompress
+//        return kAnalyzer.executeJavaScriptFunction("JXG.decompress", args: [str]).toString()
     }
     
 }

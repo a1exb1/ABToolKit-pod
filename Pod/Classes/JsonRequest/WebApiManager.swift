@@ -54,7 +54,7 @@ public class WebApiManager: NSObject {
             //var secretComponent = Encryptor.encrypt("api", key: kKey)
             var eRestKey = encryptSecretUrlComponent(restKey!)
             var eID = encryptSecretUrlComponent("\(id)")
-            var secretRestApiPrefix = encryptSecretUrlComponent("api")
+            var secretRestApiPrefix = "apih" // encryptSecretUrlComponent("api")
             
             return validRestUrlSet() ? "\(getDomain())/\(secretRestApiPrefix)/\(eRestKey)/\(eID)" : nil
         }
@@ -67,7 +67,7 @@ public class WebApiManager: NSObject {
         if kEncryptComponents {
             
             var eRestKey = encryptSecretUrlComponent(restKey!)
-            var secretRestApiPrefix = encryptSecretUrlComponent("api")
+            var secretRestApiPrefix = "apih" // encryptSecretUrlComponent("api")
             
             return validRestUrlSet() ? "\(getDomain())/\(secretRestApiPrefix)/\(eRestKey)" : nil
         }
