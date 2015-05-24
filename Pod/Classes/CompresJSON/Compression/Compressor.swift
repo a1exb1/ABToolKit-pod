@@ -22,7 +22,7 @@ class Compressor: NSObject {
     class func decompress(str: String) -> String {
         
         kAnalyzer.loadScript("jsxcompressor.min") // GZIP for decompress
-        return kAnalyzer.executeJavaScriptFunction("Decompress", args: [str]).toString()
+        return kAnalyzer.executeJavaScriptFunction("JXG.decompress", args: [str]).toString()
     }
     
 }
