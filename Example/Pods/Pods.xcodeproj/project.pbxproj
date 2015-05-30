@@ -91,6 +91,7 @@
 		D8784C0F72C6A26445778232 /* Pods-ABToolKit-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E02DAE65659C400D69365555 /* Pods-ABToolKit-Alamofire-dummy.m */; };
 		DEADEDD6DD346DF9B252A965 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2243FDE48A26AA529B93E1 /* Foundation.framework */; };
 		E3B49335ED5D35878F7931DC /* ABToolKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 545B64E23EC643A347045700 /* ABToolKit.bundle */; };
+		E43FDB3F1B19D8DA004BF235 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FDB3E1B19D8DA004BF235 /* BaseViewController.swift */; };
 		E4708E701B04EFA500640E77 /* AutoLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4708E6F1B04EFA500640E77 /* AutoLayoutHelper.swift */; };
 		E6B37A10A8BB9111A91910F6 /* Pods-Tests-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A230A8361960EC8CAE052DA0 /* Pods-Tests-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E966C7D1AEC7874A60ADD588 /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D437A69CE21BE5CFC31841C /* JsonRequest.swift */; };
@@ -304,6 +305,7 @@
 		E3642DDED6F929BAFB9A9BC5 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E3B097CD67EB8B100B04AC66 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E3E4B74F1798D3AA0557E688 /* NSDate+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		E43FDB3E1B19D8DA004BF235 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E4708E6F1B04EFA500640E77 /* AutoLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutHelper.swift; sourceTree = "<group>"; };
 		E7C0C945978491195649A9FE /* Pods-ABToolKit-ABToolKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ABToolKit-ABToolKit-dummy.m"; sourceTree = "<group>"; };
 		E8BFE9BDD5E8E208218F6526 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 		8F81EE2FE72C65416FA74334 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E43FDB3A1B19D8CC004BF235 /* Tools */,
 				E4708E6E1B04EFA500640E77 /* Autolayout */,
 				A2523C20FBBBC5CBBA5D7AAC /* CompresJSON */,
 				2C376DD3417264249921D10D /* Extensions */,
@@ -749,6 +752,38 @@
 				22D370DB1320E4BAEDC41963 /* Compressor.swift */,
 			);
 			path = Compression;
+			sourceTree = "<group>";
+		};
+		E43FDB3A1B19D8CC004BF235 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E43FDB3B1B19D8CC004BF235 /* Models */,
+				E43FDB3C1B19D8CC004BF235 /* ViewControllers */,
+				E43FDB3D1B19D8CC004BF235 /* Views */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E43FDB3B1B19D8CC004BF235 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E43FDB3C1B19D8CC004BF235 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E43FDB3E1B19D8DA004BF235 /* BaseViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E43FDB3D1B19D8CC004BF235 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E4708E6E1B04EFA500640E77 /* Autolayout */ = {
@@ -1216,6 +1251,7 @@
 				A7D3ED11E4487D634EE9A7A0 /* CompresJSONObject.swift in Sources */,
 				2A610AFA7A13197FDE90B470 /* CompresJSONSettings.swift in Sources */,
 				7EDEA45C41A61918A86E8566 /* CompresJsonRequest.swift in Sources */,
+				E43FDB3F1B19D8DA004BF235 /* BaseViewController.swift in Sources */,
 				832CD8415ABECD1764D8A075 /* Compressor.swift in Sources */,
 				5913166FDDC18770AC8DF934 /* DateFormat.swift in Sources */,
 				3DC6C2659625E9C132E263A7 /* Encryptor.swift in Sources */,
