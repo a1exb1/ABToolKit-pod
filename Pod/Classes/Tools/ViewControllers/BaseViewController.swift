@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+public class BaseViewController: UIViewController {
     
-    func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource:UITableViewDataSource) {
+    public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource:UITableViewDataSource) {
         
         view.addSubview(tableView)
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -24,11 +24,11 @@ class BaseViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    func refresh(refreshControl: UIRefreshControl?) {
+    public func refresh(refreshControl: UIRefreshControl?) {
         
     }
     
-    func deselectTableViewSelectedCell(tableView: UITableView) {
+    public func deselectTableViewSelectedCell(tableView: UITableView) {
         
         if let indexPath = tableView.indexPathForSelectedRow() {
             
