@@ -13,15 +13,26 @@ public class BaseViewController: UIViewController {
     public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource:UITableViewDataSource) {
         
         view.addSubview(tableView)
-        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        tableView.fillSuperView(UIEdgeInsetsZero)
+        
+        setupTableViewConstraints(tableView)
         
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         
+        setupTableViewRefreshControl(tableView)
+    }
+    
+    func setupTableViewRefreshControl(tableView: UITableView) {
+        
         var refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.AllEvents)
         tableView.addSubview(refreshControl)
+    }
+    
+    func setupTableViewConstraints(tableView: UITableView) {
+        
+        tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        tableView.fillSuperView(UIEdgeInsetsZero)
     }
     
     public func refresh(refreshControl: UIRefreshControl?) {
