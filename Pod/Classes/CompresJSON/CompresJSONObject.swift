@@ -21,7 +21,7 @@ public class CompresJSONObject: JSONObject {
         return nil
     }
     
-    public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> CompresJsonRequest? {
+    public override class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> CompresJsonRequest? {
         
         if let url = T.webApiUrls().getUrl(id) {
             
@@ -35,14 +35,14 @@ public class CompresJSONObject: JSONObject {
         return nil
     }
     
-    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
+  override   public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
         
         return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
             completion(objects: objects)
         }
     }
     
-    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
+    public override class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
         
         if let url = T.webApiUrls().getMultipleUrl() {
         

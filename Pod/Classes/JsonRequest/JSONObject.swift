@@ -75,6 +75,53 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         }
     }
     
+    public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> JsonRequest? {
+        
+        if let url = T.webApiUrls().getUrl(id) {
+            
+            return JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+                
+                completion(object: self.createObjectFromJson(json) as T)
+                
+            }
+        }
+        
+        return nil
+    }
+    
+    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> JsonRequest? {
+        
+        return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+            completion(objects: objects)
+        }
+    }
+    
+    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> JsonRequest? {
+        
+        if let url = T.webApiUrls().getMultipleUrl() {
+            
+            var params = [
+                "skip" : skip,
+                "take" : take
+            ]
+            
+            return JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+                
+                var objects = [T]()
+                
+                for (index: String, objectJSON: JSON) in json {
+                    
+                    var object:T = self.createObjectFromJson(objectJSON)
+                    objects.append(object)
+                }
+                
+                completion(objects: objects)
+            }
+        }
+        
+        return nil
+    }
+    
     public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
         
         var dict = Dictionary<String, AnyObject?>()
@@ -312,7 +359,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         
         var mapping = Mapping()
         
-        if let c = anyClass {
+        if let c: AnyClass = anyClass {
             
             mapping.mClass = c
         }
