@@ -105,6 +105,7 @@
 		DE5BAFC6AF52E26866B215EC /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26920C79D6DAB2F0AD406FD6 /* UIImage+Extension.swift */; };
 		E0822CC8EC5962F167B5D98B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31059F77BCF1745BFDC788DC /* XCTest.framework */; };
 		E14B010B74CF98E01432DF0C /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25804E85A424FB3A73933031 /* Encryptor.swift */; };
+		E46729BF1B1B657E000511B5 /* NSTimer+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729BE1B1B657E000511B5 /* NSTimer+Closure.swift */; };
 		E58CFD0346DB9ACFE05F6CC9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A3FD4EB385C6296B617F2B /* Alamofire.framework */; };
 		E6CC5622F3E9F2AE4B9AC8D8 /* CompresJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05888A2947767A817AC77A37 /* CompresJsonRequest.swift */; };
 		EA8A587B8428DD3F5DCF1071 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B1EB04FBAF72A61A62A107 /* WebViewController.swift */; };
@@ -329,6 +330,7 @@
 		DA8F86C54CC47814C6D3386B /* JSONMappingDefaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONMappingDefaults.swift; sourceTree = "<group>"; };
 		DBF332E7F9527DCEA1A7B4FB /* JavaScriptAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JavaScriptAnalyzer.swift; sourceTree = "<group>"; };
 		DF6F23F74045D401868771C8 /* Pods-Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-frameworks.sh"; sourceTree = "<group>"; };
+		E46729BE1B1B657E000511B5 /* NSTimer+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Closure.swift"; sourceTree = "<group>"; };
 		E5289DE380ECB4AC4FB5B93D /* NSData+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSData+Extension.swift"; sourceTree = "<group>"; };
 		E6771C8C06BE3974DD6585FA /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76D7F9F78BF6587CFEF5473 /* Pods-Tests-FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 				98EF3D6A19F8A620D152A67A /* UIStoryboardExtension.swift */,
 				0F8AD6C498B248B6080AEE1E /* UIView+Extension.swift */,
 				3EF8CD27203D9B2BBE0205CA /* UIViewController+Extension.swift */,
+				E46729BE1B1B657E000511B5 /* NSTimer+Closure.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1251,6 +1254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46729BF1B1B657E000511B5 /* NSTimer+Closure.swift in Sources */,
 				509343CB8A26C3F46ADBF85A /* Pods-ABToolKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1431,6 +1435,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DB8DA48A63D79C34834DF49 /* Pods-ABToolKit.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1937,6 +1942,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01F10E66F8D97E716D46F274 /* Pods-ABToolKit.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
