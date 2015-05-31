@@ -10,7 +10,7 @@ import UIKit
 
 public extension String {
     
-    public func charCount() -> Int {
+    public func characterCount() -> Int {
         
         return count(self.utf16)
     }
@@ -24,6 +24,7 @@ public extension String {
     }
     
     public func replaceString(string:String, withString:String) -> String {
+        
         return self.stringByReplacingOccurrencesOfString(string, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
@@ -33,6 +34,7 @@ public extension String {
     }
     
     public func urlEncode() -> String {
+        
         return self.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
     }
     
@@ -47,6 +49,12 @@ public extension String {
     }
     
     public func toData() -> NSData {
+        
         return (self as NSString).dataUsingEncoding(NSUTF8StringEncoding)!
+    }
+    
+    public func toDate(format: String) -> NSDate {
+        
+        return NSDate.dateFromString(self, format: format)
     }
 }

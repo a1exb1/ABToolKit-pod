@@ -92,6 +92,12 @@
 		DEADEDD6DD346DF9B252A965 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2243FDE48A26AA529B93E1 /* Foundation.framework */; };
 		E3B49335ED5D35878F7931DC /* ABToolKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 545B64E23EC643A347045700 /* ABToolKit.bundle */; };
 		E43FDB3F1B19D8DA004BF235 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43FDB3E1B19D8DA004BF235 /* BaseViewController.swift */; };
+		E46729A91B1B5775000511B5 /* UIView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729A81B1B5775000511B5 /* UIView+Animations.swift */; };
+		E46729AB1B1B586F000511B5 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729AA1B1B586F000511B5 /* UIImage+Extension.swift */; };
+		E46729AD1B1B58E1000511B5 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729AC1B1B58E1000511B5 /* UILabel+Extension.swift */; };
+		E46729AF1B1B59F8000511B5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729AE1B1B59F8000511B5 /* UIColor+Extension.swift */; };
+		E46729B11B1B5A2A000511B5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729B01B1B5A2A000511B5 /* UIImageView+Extension.swift */; };
+		E46729B31B1B5A6B000511B5 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46729B21B1B5A6B000511B5 /* DateRange.swift */; };
 		E4708E701B04EFA500640E77 /* AutoLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4708E6F1B04EFA500640E77 /* AutoLayoutHelper.swift */; };
 		E6B37A10A8BB9111A91910F6 /* Pods-Tests-Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A230A8361960EC8CAE052DA0 /* Pods-Tests-Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E966C7D1AEC7874A60ADD588 /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D437A69CE21BE5CFC31841C /* JsonRequest.swift */; };
@@ -306,6 +312,12 @@
 		E3B097CD67EB8B100B04AC66 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E3E4B74F1798D3AA0557E688 /* NSDate+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		E43FDB3E1B19D8DA004BF235 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E46729A81B1B5775000511B5 /* UIView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animations.swift"; sourceTree = "<group>"; };
+		E46729AA1B1B586F000511B5 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		E46729AC1B1B58E1000511B5 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		E46729AE1B1B59F8000511B5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E46729B01B1B5A2A000511B5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		E46729B21B1B5A6B000511B5 /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		E4708E6F1B04EFA500640E77 /* AutoLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutHelper.swift; sourceTree = "<group>"; };
 		E7C0C945978491195649A9FE /* Pods-ABToolKit-ABToolKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ABToolKit-ABToolKit-dummy.m"; sourceTree = "<group>"; };
 		E8BFE9BDD5E8E208218F6526 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -427,6 +439,11 @@
 				10F3F518FE7288ED8942A4DC /* UIAlertController+Extension.swift */,
 				DCBBFD0E451164FEBC3150C1 /* UIStoryboardExtension.swift */,
 				3BFF92D5511D4EF9C97BEDEF /* UIViewController+Extension.swift */,
+				E46729A81B1B5775000511B5 /* UIView+Animations.swift */,
+				E46729AA1B1B586F000511B5 /* UIImage+Extension.swift */,
+				E46729AC1B1B58E1000511B5 /* UILabel+Extension.swift */,
+				E46729AE1B1B59F8000511B5 /* UIColor+Extension.swift */,
+				E46729B01B1B5A2A000511B5 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -760,6 +777,7 @@
 				E43FDB3B1B19D8CC004BF235 /* Models */,
 				E43FDB3C1B19D8CC004BF235 /* ViewControllers */,
 				E43FDB3D1B19D8CC004BF235 /* Views */,
+				E46729B21B1B5A6B000511B5 /* DateRange.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1238,7 +1256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E46729B11B1B5A2A000511B5 /* UIImageView+Extension.swift in Sources */,
+				E46729B31B1B5A6B000511B5 /* DateRange.swift in Sources */,
+				E46729AD1B1B58E1000511B5 /* UILabel+Extension.swift in Sources */,
+				E46729AB1B1B586F000511B5 /* UIImage+Extension.swift in Sources */,
 				55A648800E308C37367B5E73 /* Pods-ABToolKit-dummy.m in Sources */,
+				E46729A91B1B5775000511B5 /* UIView+Animations.swift in Sources */,
+				E46729AF1B1B59F8000511B5 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,6 +1676,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92B52300570AF987E21711C7 /* Pods-ABToolKit.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1767,6 +1792,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA4F5BA082559AF63D1CD57E /* Pods-ABToolKit.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

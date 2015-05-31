@@ -10,6 +10,12 @@ import UIKit
 
 public class BaseViewController: UIViewController {
     
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.whiteColor()
+    }
+    
     public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource:UITableViewDataSource) {
         
         view.addSubview(tableView)
