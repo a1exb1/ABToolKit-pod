@@ -64,34 +64,19 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) {
-        
-        if let url = T.webApiUrls().getUrl(id) {
-         
-            JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
-                
-                completion(object: self.createObjectFromJson(json) as T)
-            }
-        }
-    }
-    
     public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> JsonRequest? {
-        
-        if let url = T.webApiUrls().getUrl(id) {
             
-            return JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
-                
-                completion(object: self.createObjectFromJson(json) as T)
-                
-            }
+        return requestObjectWithID(id).onDownloadSuccess { (json, request) -> () in
+            
+            completion(object: self.createObjectFromJson(json) as T)
+            
         }
-        
-        return nil
     }
     
     public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> JsonRequest? {
         
         return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+            
             completion(objects: objects)
         }
     }
