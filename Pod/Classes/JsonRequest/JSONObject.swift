@@ -54,60 +54,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         self.webApiManagerDelegate = self
     }
     
-    public class func requestObjectWithID(id: Int) -> JsonRequest? {
-     
-        if let url = self.webApiUrls().getUrl(id) {
-            
-            return JsonRequest.create(url, parameters: nil, method: .GET)
-        }
-        
-        return nil
-    }
-    
-    public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> JsonRequest? {
-            
-        return requestObjectWithID(id)?.onDownloadSuccess { (json, request) -> () in
-            
-            completion(object: self.createObjectFromJson(json) as T)
-            
-        }
-    }
-    
-    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> JsonRequest? {
-        
-        return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
-            
-            completion(objects: objects)
-        }
-    }
-    
-    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> JsonRequest? {
-        
-        if let url = T.webApiUrls().getMultipleUrl() {
-            
-            var params = [
-                "skip" : skip,
-                "take" : take
-            ]
-            
-            return JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
-                
-                var objects = [T]()
-                
-                for (index: String, objectJSON: JSON) in json {
-                    
-                    var object:T = self.createObjectFromJson(objectJSON)
-                    objects.append(object)
-                }
-                
-                completion(objects: objects)
-            }
-        }
-        
-        return nil
-    }
-    
-    public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
+    public class func convertJsonToDictionary(json: JSON) -> Dictionary<String, AnyObject?> {
         
         var dict = Dictionary<String, AnyObject?>()
         
@@ -126,7 +73,18 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
                 dict[key] = json[key].object
             }
         }
+    }
+    
+    public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
+        
+        let dict = convertJsonToDictionary(json)
         return T.createObjectFromDict(dict)
+    }
+    
+    public func setPropertiesFromJson() {
+        
+        let dict = convertJsonToDictionary(json)
+        self.setPropertiesFromDictionary(dict)
     }
     
     public func setExtraPropertiesFromJSON(json:JSON) {
@@ -444,7 +402,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    public func webApiDelete() -> JsonRequest?{
+    public func webApiDelete() -> JsonRequest? {
         
         if let url = self.dynamicType.webApiUrls().deleteUrl(webApiManagerDelegate?.webApiRestObjectID()) {
 
@@ -458,10 +416,95 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
+    public func webApiRefresh() -> JsonRequest? {
+        
+        if let id = webApiManagerDelegate?.webApiRestObjectID() {
+         
+            return self.dynamicType.requestObjectWithID(id)?.onDownloadSuccess { (json, request) -> () in
+                
+                self.setPropertiesFromJson(json)
+            }
+        }
+    }
+    
+    public func webApiInsertOrUpdate() -> JsonRequest? {
+        
+        if let id = webApiManagerDelegate?.webApiRestObjectID() {
+            
+            var request: JsonRequest?
+            
+            if id == 0 {
+                
+                request = webApiInsert()
+            }
+            else{
+                
+                request = webApiUpdate()
+            }
+            
+            return request
+        }
+        
+        return nil
+    }
     
     public func webApiRestObjectID() -> Int? {
         
         return nil
     }
+    
+    public class func requestObjectWithID(id: Int) -> JsonRequest? {
+        
+        if let url = self.webApiUrls().getUrl(id) {
+            
+            return JsonRequest.create(url, parameters: nil, method: .GET)
+        }
+        
+        return nil
+    }
+    
+    public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> JsonRequest? {
+        
+        return requestObjectWithID(id)?.onDownloadSuccess { (json, request) -> () in
+            
+            completion(object: self.createObjectFromJson(json) as T)
+            
+        }
+    }
+    
+    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> JsonRequest? {
+        
+        return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+            
+            completion(objects: objects)
+        }
+    }
+    
+    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> JsonRequest? {
+        
+        if let url = T.webApiUrls().getMultipleUrl() {
+            
+            var params = [
+                "skip" : skip,
+                "take" : take
+            ]
+            
+            return JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+                
+                var objects = [T]()
+                
+                for (index: String, objectJSON: JSON) in json {
+                    
+                    var object:T = self.createObjectFromJson(objectJSON)
+                    objects.append(object)
+                }
+                
+                completion(objects: objects)
+            }
+        }
+        
+        return nil
+    }
+
     
 }
