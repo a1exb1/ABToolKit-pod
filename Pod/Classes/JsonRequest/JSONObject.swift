@@ -44,7 +44,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public class func webApiUrls() -> WebApiManager {
         
-        return WebApiManager()
+        return WebApiManager().setupUrlsForREST(getClassName() + "s")
     }
     
     required override public init() {
