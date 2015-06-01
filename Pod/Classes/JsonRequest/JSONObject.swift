@@ -45,7 +45,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     public class func webApiUrls() -> WebApiManager {
         
         var suffix = "s"
-        let className = self.getClassName()
+        var className = self.getClassName()
         
         if className[className.characterCount()-1] == "y" {
             

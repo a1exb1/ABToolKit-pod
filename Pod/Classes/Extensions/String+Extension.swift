@@ -77,8 +77,8 @@ public extension String {
     
     // MARK - substring
     
-    public class func removeLastCharacter() -> String {
+    public func removeLastCharacter() -> String {
         
-        return self.substringToIndex(name.endIndex.predecessor())
+        return self.substringToIndex(self.endIndex.predecessor())
     }
 }
