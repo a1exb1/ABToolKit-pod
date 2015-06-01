@@ -334,7 +334,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public func registerProperty(propertyKey: String, withJsonKey: String ) {
         
-        registerClass(nil, propertyKey: propertyKey, jsonKey: jsonKey, format: nil)
+        registerClass(nil, propertyKey: propertyKey, jsonKey: withJsonKey, format: nil)
     }
     
     
