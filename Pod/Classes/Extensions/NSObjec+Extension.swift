@@ -10,5 +10,8 @@ import Foundation
 
 public extension NSObject {
     
-    
+    public class func getClassName() -> String {
+        
+        return reflect(self).summary.componentsSeparatedByString(".").last!
+    }
 }
