@@ -487,22 +487,19 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> JsonRequest? {
         
-        return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+        return self.webApiGetMultipleObjects(type, query: nil) { (objects) -> () in
             
             completion(objects: objects)
         }
     }
     
-    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> JsonRequest? {
+    public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, query: oDataQuery?, completion: (objects:[T]) -> () ) -> JsonRequest? {
         
         if let url = T.webApiUrls().getMultipleUrl() {
             
-            var params = [
-                "skip" : skip,
-                "take" : take
-            ]
+            let q = query != nil ? query!.getQuery() : ""
             
-            return JsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+            return JsonRequest.create(url + q, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
                 var objects = [T]()
                 

@@ -115,6 +115,7 @@
 		E35E2BFDEF2B5A635772EA8D /* CompresJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5FB2551DCAF8236B1EAA3 /* CompresJSON.swift */; };
 		E41C96CE1B1CA9D70001C813 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41C96CD1B1CA9D70001C813 /* Session.swift */; };
 		E4897648B1A4CBE7540CBC04 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E16A3288D6ECE8C22AB056 /* UILabel+Extension.swift */; };
+		E4A14A0F1B1CB62F00CBF400 /* oDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A14A0E1B1CB62F00CBF400 /* oDataQuery.swift */; };
 		E627FB87710938E68D45A001 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF794767D42A204835A50DE8 /* UIViewController+Extension.swift */; };
 		E6552C7EA47FD0CD9149E85E /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3A5C8559EA71C1FDDB79D7 /* DateFormat.swift */; };
 		E6D752D85C093C4A04BC7B98 /* ABToolKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25925E6FD5C9039045FC9E09 /* ABToolKit.bundle */; };
@@ -343,6 +344,7 @@
 		E3AB22B38C5C125A9499D520 /* JsonRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
 		E41C96CD1B1CA9D70001C813 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		E44A5454113C6F8B07482341 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
+		E4A14A0E1B1CB62F00CBF400 /* oDataQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oDataQuery.swift; sourceTree = "<group>"; };
 		E519B30687A1630CDC4BA643 /* CompresJSONSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompresJSONSettings.swift; sourceTree = "<group>"; };
 		E6F55AE289EAEE3C3441EB12 /* Pods-Tests-FBSnapshotTestCase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-FBSnapshotTestCase.xcconfig"; sourceTree = "<group>"; };
 		E7236DE638D63B97000A3E48 /* Pods-ABToolKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ABToolKit-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 		169514A3026BB480903F3DFA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E4A14A0D1B1CB62100CBF400 /* oData */,
 				265CA6D59606162C700F5281 /* Autolayout */,
 				EF7D65574C5EAF34A3B7C42A /* CompresJSON */,
 				9D4FC0908EEAE63CACDC66C0 /* Extensions */,
@@ -817,6 +820,14 @@
 				15F9303CE9B60ECC461C30A1 /* Assets */,
 			);
 			path = Pod;
+			sourceTree = "<group>";
+		};
+		E4A14A0D1B1CB62100CBF400 /* oData */ = {
+			isa = PBXGroup;
+			children = (
+				E4A14A0E1B1CB62F00CBF400 /* oDataQuery.swift */,
+			);
+			path = oData;
 			sourceTree = "<group>";
 		};
 		E79B3573C36388CC5AA8DB5A /* Pods-ABToolKit */ = {
@@ -1282,6 +1293,7 @@
 				4D319E6D51469DFBA3034191 /* String+Extension.swift in Sources */,
 				4B034A18E5E8EA087C58F670 /* UIAlertController+Extension.swift in Sources */,
 				CB8B1BF169BE47BB013F0CCD /* UIColor+Extension.swift in Sources */,
+				E4A14A0F1B1CB62F00CBF400 /* oDataQuery.swift in Sources */,
 				EBFE0D8F77F39C0A2CBB5804 /* UIImage+Extension.swift in Sources */,
 				94B251039FCD1C97F017116E /* UIImageView+Extension.swift in Sources */,
 				E4897648B1A4CBE7540CBC04 /* UILabel+Extension.swift in Sources */,

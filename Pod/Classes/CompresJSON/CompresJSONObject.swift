@@ -35,23 +35,20 @@ public class CompresJSONObject: JSONObject {
         return nil
     }
     
-  override   public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
+  override public class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
         
-        return self.webApiGetMultipleObjects(type, skip: 0, take: 20) { (objects) -> () in
+        return self.webApiGetMultipleObjects(type, query: nil) { (objects) -> () in
             completion(objects: objects)
         }
     }
     
-    public override class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, skip:Int, take:Int, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
+    public override class func webApiGetMultipleObjects< T : JSONObject >(type: T.Type, query: oDataQuery?, completion: (objects:[T]) -> () ) -> CompresJsonRequest? {
         
         if let url = T.webApiUrls().getMultipleUrl() {
-        
-            var params = [
-                "skip" : skip,
-                "take" : take
-            ]
             
-            return CompresJsonRequest.create(url, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
+            let q = query != nil ? query!.getQuery() : ""
+            
+            return CompresJsonRequest.create(url + q, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
                 var objects = [T]()
                 
