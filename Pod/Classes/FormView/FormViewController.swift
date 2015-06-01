@@ -62,12 +62,18 @@ public class FormViewController: BaseViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView(tableView, delegate: self, dataSource: self)
+        refresh(nil)
+    }
+    
+    func reloadForm() {
+        
         if let elements = formViewDelegate?.formViewElements() {
             
             data = elements
         }
         
-        setupTableView(tableView, delegate: self, dataSource: self)
+        tableView.reloadData()
     }
     
     override public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
