@@ -8,16 +8,11 @@
 
 import UIKit
 
-private var kSessionSharedInstance: Session? = nil
+private var kSessionSharedInstance = Session()
 
 public class Session: NSObject {
    
     public var domain: String = ""
-    
-    public class func initializeSession() {
-        
-        kSessionSharedInstance = Session()
-    }
     
     public class func sharedSession() -> Session? {
         
