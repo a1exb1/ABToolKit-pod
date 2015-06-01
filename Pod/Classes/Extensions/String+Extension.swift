@@ -57,4 +57,28 @@ public extension String {
         
         return NSDate.dateFromString(self, format: format)
     }
+    
+    // MARK: - get characters
+    
+    public subscript (i: Int) -> Character {
+        
+        return self[advance(self.startIndex, i)]
+    }
+    
+    public subscript (i: Int) -> String {
+        
+        return String(self[i] as Character)
+    }
+    
+    public subscript (r: Range<Int>) -> String {
+        
+        return substringWithRange(Range(start: advance(startIndex, r.startIndex), end: advance(startIndex, r.endIndex)))
+    }
+    
+    // MARK - substring
+    
+    public class func removeLastCharacter() -> String {
+        
+        return self.substringToIndex(name.endIndex.predecessor())
+    }
 }

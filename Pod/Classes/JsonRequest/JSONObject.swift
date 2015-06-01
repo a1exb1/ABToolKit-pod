@@ -44,7 +44,16 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public class func webApiUrls() -> WebApiManager {
         
-        return WebApiManager().setupUrlsForREST(getClassName() + "s")
+        var suffix = "s"
+        let className = self.getClassName()
+        
+        if className[className.characterCount()-1] == "y" {
+            
+            className = className.removeLastCharacter()
+            suffix = "ies"
+        }
+        
+        return WebApiManager().setupUrlsForREST(className + suffix)
     }
     
     required override public init() {
