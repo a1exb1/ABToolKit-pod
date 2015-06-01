@@ -35,6 +35,11 @@ public extension String {
     
     public func urlEncode() -> String {
         
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
+    }
+    
+    public func urlEncodeUrlComonent() -> String {
+        
         return self.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
     }
     
