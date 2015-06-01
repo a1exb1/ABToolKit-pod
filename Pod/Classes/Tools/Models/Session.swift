@@ -14,7 +14,7 @@ public class Session: NSObject {
    
     public var domain: String = ""
     
-    public class func sharedSession() -> Session? {
+    public class func sharedSession() -> Session {
         
         return kSessionSharedInstance
     }
