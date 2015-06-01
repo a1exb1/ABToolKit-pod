@@ -9,13 +9,11 @@
 import UIKit
 
 private let kKey = CompresJSON.sharedInstance().settings.encryptionKey
-private let kEncryptComponents = CompresJSON.sharedInstance().settings.encryptUrlComponents
 
 public class WebApiManager: NSObject {
    
     public var domain: String?
     public var restKey: String?
-    //var webApiManagerDelegate: WebApiManagerDelegate?
     
     public func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
         
@@ -30,7 +28,7 @@ public class WebApiManager: NSObject {
         return setupUrlsForREST(key, overrideDomain: nil)
     }
     
-    private func getDomain() -> String{
+    func getDomain() -> String{
         
         var domain = ""
         
@@ -47,32 +45,14 @@ public class WebApiManager: NSObject {
         return domain
     }
     
-    private func mutableUrl(id: Int) -> String? {
+    func mutableUrl(id: Int) -> String? {
         
-        if kEncryptComponents {
-            
-            //var secretComponent = Encryptor.encrypt("api", key: kKey)
-            var eRestKey = encryptSecretUrlComponent(restKey!)
-            var eID = encryptSecretUrlComponent("\(id)")
-            var secretRestApiPrefix = "apih" // encryptSecretUrlComponent("api")
-            
-            return validRestUrlSet() ? "\(getDomain())/\(secretRestApiPrefix)/\(eRestKey)/\(eID)" : nil
-        }
-        
-        return validRestUrlSet() ? "\(getDomain())/api/\(restKey!)/\(id)" : nil
+        return validRestUrlSet() ? "\(getDomain())/\(restKey!)/\(id)" : nil
     }
     
-    private func staticUrl() -> String? {
+    func staticUrl() -> String? {
         
-        if kEncryptComponents {
-            
-            var eRestKey = encryptSecretUrlComponent(restKey!)
-            var secretRestApiPrefix = "apih" // encryptSecretUrlComponent("api")
-            
-            return validRestUrlSet() ? "\(getDomain())/\(secretRestApiPrefix)/\(eRestKey)" : nil
-        }
-        
-        return validRestUrlSet() ? "\(getDomain())/api/\(restKey!)" : nil
+        return validRestUrlSet() ? "\(getDomain())/\(restKey!)" : nil
     }
     
     public func updateUrl(id: Int?) -> String? {
@@ -113,10 +93,5 @@ public class WebApiManager: NSObject {
     public func validRestUrlSet() -> Bool {
      
         return restKey != nil
-    }
-    
-    private func encryptSecretUrlComponent(str: String) -> String {
-        
-        return Encryptor.encrypt(str, key: kKey)
     }
 }
