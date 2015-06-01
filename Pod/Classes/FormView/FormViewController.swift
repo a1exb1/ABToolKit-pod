@@ -63,10 +63,9 @@ public class FormViewController: BaseViewController {
         super.viewDidLoad()
         
         setupTableView(tableView, delegate: self, dataSource: self)
-        refresh(nil)
     }
     
-    func reloadForm() {
+    public func reloadForm() {
         
         if let elements = formViewDelegate?.formViewElements() {
             
