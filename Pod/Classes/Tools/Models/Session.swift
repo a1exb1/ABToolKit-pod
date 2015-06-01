@@ -12,7 +12,7 @@ private var kSessionSharedInstance: Session? = nil
 
 public class Session: NSObject {
    
-    var domain: String = ""
+    public var domain: String = ""
     
     public class func initializeSession() {
         
