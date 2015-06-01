@@ -56,7 +56,7 @@ public class FormViewController: BaseViewController {
     var tableView = UITableView(frame: CGRectZero, style: .Grouped)
     var data: Array<Array<FormViewConfiguration>> = []
     var selectedIndexPath: NSIndexPath?
-    var formViewDelegate: FormViewDelegate?
+    public var formViewDelegate: FormViewDelegate?
     //var editingObjectToConfiguation: Dictionary<AnyObject, FormViewConfiguration> = []
     
     override public func viewDidLoad() {
