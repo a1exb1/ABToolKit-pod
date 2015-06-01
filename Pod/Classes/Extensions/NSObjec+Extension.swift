@@ -10,8 +10,5 @@ import Foundation
 
 public extension NSObject {
     
-    public class func getClassName() -> String {
-        
-        return _stdlib_getDemangledTypeName(self).componentsSeparatedByString(".").last!
-    }
+    
 }

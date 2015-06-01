@@ -47,6 +47,11 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return WebApiManager().setupUrlsForREST(getClassName() + "s")
     }
     
+    public class func getClassName() -> String {
+        
+        return _stdlib_getDemangledTypeName(self).componentsSeparatedByString(".").last!
+    }
+    
     required override public init() {
         super.init()
         
