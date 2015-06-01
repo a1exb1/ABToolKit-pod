@@ -37,6 +37,6 @@ public class oDataQuery: NSObject {
             c++
         }
         
-        return query
+        return query.urlEncode()
     }
 }
