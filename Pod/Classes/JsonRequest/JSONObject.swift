@@ -66,7 +66,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     
     public class func webApiGetObjectByID< T : JSONObject >(type: T.Type, id:Int, completion: (object:T) -> () ) -> JsonRequest? {
             
-        return requestObjectWithID(id).onDownloadSuccess { (json, request) -> () in
+        return requestObjectWithID(id)?.onDownloadSuccess { (json, request) -> () in
             
             completion(object: self.createObjectFromJson(json) as T)
             
