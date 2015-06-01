@@ -418,7 +418,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    public func webApiRefresh<T : JSONObject>(completion:(object: T) -> ()) -> JsonRequest? {
+    public func webApiRefresh<T : JSONObject>(type: T.Type, completion:(object: T) -> ()) -> JsonRequest? {
         
         if let id = webApiManagerDelegate?.webApiRestObjectID() {
          
