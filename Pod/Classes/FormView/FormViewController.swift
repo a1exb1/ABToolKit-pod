@@ -63,6 +63,7 @@ public class FormViewController: BaseViewController {
         super.viewDidLoad()
         
         setupTableView(tableView, delegate: self, dataSource: self)
+        reloadForm()
     }
     
     public func reloadForm() {
