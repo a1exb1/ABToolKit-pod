@@ -73,6 +73,8 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
                 dict[key] = json[key].object
             }
         }
+        
+        return dict
     }
     
     public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
@@ -81,9 +83,9 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return T.createObjectFromDict(dict)
     }
     
-    public func setPropertiesFromJson() {
+    public func setPropertiesFromJson(json: JSON) {
         
-        let dict = convertJsonToDictionary(json)
+        let dict = self.dynamicType.convertJsonToDictionary(json)
         self.setPropertiesFromDictionary(dict)
     }
     
@@ -416,15 +418,17 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
     
-    public func webApiRefresh() -> JsonRequest? {
+    public func webApiRefresh<T : JSONObject>(completion:(object: T) -> ()) -> JsonRequest? {
         
         if let id = webApiManagerDelegate?.webApiRestObjectID() {
          
-            return self.dynamicType.requestObjectWithID(id)?.onDownloadSuccess { (json, request) -> () in
+            return self.dynamicType.requestObjectWithID(id)?.onDownloadSuccess({ (json, request) -> () in
                 
-                self.setPropertiesFromJson(json)
-            }
+                completion(object: self.dynamicType.createObjectFromJson(json))
+            })
         }
+        
+        return nil
     }
     
     public func webApiInsertOrUpdate() -> JsonRequest? {
