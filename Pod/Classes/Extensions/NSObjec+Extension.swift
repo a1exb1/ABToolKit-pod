@@ -10,8 +10,8 @@ import Foundation
 
 public extension NSObject {
     
-    public static func getClassName() -> String {
+    public class func getClassName() -> String {
         
-        return NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!
+        return _stdlib_getDemangledTypeName(self.dynamicType)
     }
 }
