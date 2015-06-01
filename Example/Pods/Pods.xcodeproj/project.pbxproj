@@ -113,6 +113,7 @@
 		E0F73BEF31DE6E3416ACDE92 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97998D74912512C7E419DD19 /* XCTest.framework */; };
 		E1F7D3D46747D108224469A9 /* Pods-Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 545254668A4443BB8E567F39 /* Pods-Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E35E2BFDEF2B5A635772EA8D /* CompresJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5FB2551DCAF8236B1EAA3 /* CompresJSON.swift */; };
+		E41C96CE1B1CA9D70001C813 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41C96CD1B1CA9D70001C813 /* Session.swift */; };
 		E4897648B1A4CBE7540CBC04 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E16A3288D6ECE8C22AB056 /* UILabel+Extension.swift */; };
 		E627FB87710938E68D45A001 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF794767D42A204835A50DE8 /* UIViewController+Extension.swift */; };
 		E6552C7EA47FD0CD9149E85E /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3A5C8559EA71C1FDDB79D7 /* DateFormat.swift */; };
@@ -340,6 +341,7 @@
 		DF794767D42A204835A50DE8 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E252416F802C68FF740A2EC4 /* Pods-ABToolKit-ABToolKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ABToolKit-ABToolKit-umbrella.h"; sourceTree = "<group>"; };
 		E3AB22B38C5C125A9499D520 /* JsonRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
+		E41C96CD1B1CA9D70001C813 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		E44A5454113C6F8B07482341 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
 		E519B30687A1630CDC4BA643 /* CompresJSONSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompresJSONSettings.swift; sourceTree = "<group>"; };
 		E6F55AE289EAEE3C3441EB12 /* Pods-Tests-FBSnapshotTestCase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests-FBSnapshotTestCase.xcconfig"; sourceTree = "<group>"; };
@@ -787,6 +789,7 @@
 			children = (
 				C488EAD989EDA185A7C15224 /* DateRange.swift */,
 				EA3CDDF80A516A474030C9D7 /* ViewControllers */,
+				E41C96CD1B1CA9D70001C813 /* Session.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1236,6 +1239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41C96CE1B1CA9D70001C813 /* Session.swift in Sources */,
 				AB541B071CD1BB1E3FD3144F /* Pods-ABToolKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1482,6 +1486,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 724AB3950716E54948B19E28 /* Pods-ABToolKit.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1971,6 +1976,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F419A34440A9913FE7002FBD /* Pods-ABToolKit.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

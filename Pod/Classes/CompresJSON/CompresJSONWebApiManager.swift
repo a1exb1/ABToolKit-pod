@@ -22,7 +22,7 @@ class CompresJSONWebApiManager: WebApiManager {
             var eRestKey = encryptSecretUrlComponent(restKey!)
             var eID = encryptSecretUrlComponent("\(id)")
             
-            return validRestUrlSet() ? "\(getDomain())/\(kSecretRestApiPrefix)/\(eRestKey)/\(eID)" : nil
+            return validRestUrlSet() ? "\(getBaseUrl())/\(kSecretRestApiPrefix)/\(eRestKey)/\(eID)" : nil
         }
         
         return super.mutableUrl(id)
@@ -33,7 +33,7 @@ class CompresJSONWebApiManager: WebApiManager {
         if kEncryptComponents {
             
             var eRestKey = encryptSecretUrlComponent(restKey!)
-            return validRestUrlSet() ? "\(getDomain())/\(kSecretRestApiPrefix)/\(eRestKey)" : nil
+            return validRestUrlSet() ? "\(getBaseUrl())/\(kSecretRestApiPrefix)/\(eRestKey)" : nil
         }
         
         return super.staticUrl()

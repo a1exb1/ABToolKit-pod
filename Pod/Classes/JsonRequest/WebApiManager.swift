@@ -12,12 +12,12 @@ private let kKey = CompresJSON.sharedInstance().settings.encryptionKey
 
 public class WebApiManager: NSObject {
    
-    public var domain: String?
+    public var baseUrl: String?
     public var restKey: String?
     
-    public func setupUrlsForREST(restKey: String, overrideDomain: String?) -> WebApiManager {
+    public func setupUrlsForREST(restKey: String, overrideBase: String?) -> WebApiManager {
         
-        self.domain = overrideDomain
+        baseUrl = overrideBase
         self.restKey = restKey
         
         return self
@@ -25,19 +25,19 @@ public class WebApiManager: NSObject {
     
     public func setupUrlsForREST(key: String) -> WebApiManager {
         
-        return setupUrlsForREST(key, overrideDomain: nil)
+        return setupUrlsForREST(key, overrideBase: nil)
     }
     
-    func getDomain() -> String{
+    func getBaseUrl() -> String{
         
         var domain = ""
         
-        if let d = WebApiDefaults.sharedInstance().domain {
+        if let d = WebApiDefaults.sharedInstance().baseUrl {
             
             domain = d
         }
         
-        if let d = self.domain {
+        if let d = baseUrl {
             
             domain = d
         }
@@ -47,12 +47,12 @@ public class WebApiManager: NSObject {
     
     func mutableUrl(id: Int) -> String? {
         
-        return validRestUrlSet() ? "\(getDomain())/\(restKey!)/\(id)" : nil
+        return validRestUrlSet() ? "\(getBaseUrl())/\(restKey!)/\(id)" : nil
     }
     
     func staticUrl() -> String? {
         
-        return validRestUrlSet() ? "\(getDomain())/\(restKey!)" : nil
+        return validRestUrlSet() ? "\(getBaseUrl())/\(restKey!)" : nil
     }
     
     public func updateUrl(id: Int?) -> String? {
