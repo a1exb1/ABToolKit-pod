@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc protocol BaseViewControllerDelegate {
+    
+    func preferredNavigationBar()
+}
+
 public class BaseViewController: UIViewController {
     
     public override func viewDidLoad() {
@@ -52,5 +57,7 @@ public class BaseViewController: UIViewController {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
+    
+    
 }
 

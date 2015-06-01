@@ -29,3 +29,16 @@ public extension NSTimer {
         return timer
     }
 }
+
+//// Usage:
+//var count = 0
+//NSTimer.schedule(repeatInterval: 1) { timer in
+//    println(++count)
+//    if count >= 10 {
+//        timer.invalidate()
+//    }
+//}
+//
+//NSTimer.schedule(delay: 5) { timer in
+//    println("5 seconds")
+//}
