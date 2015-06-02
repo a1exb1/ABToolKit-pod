@@ -18,14 +18,33 @@ public extension UIColor {
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
     
-    public convenience init(hex: Int) {
+    public convenience init(hex: String) {
         
-        let components = (
-            R: CGFloat((hex >> 16) & 0xff) / 255,
-            G: CGFloat((hex >> 08) & 0xff) / 255,
-            B: CGFloat((hex >> 00) & 0xff) / 255
-        )
+        self.init(hex: hex, alpha: CGFloat(1.0))
+    }
+    
+    public convenience init(hex: String, alpha: CGFloat) {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
         
-        self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(advance(cString.startIndex, 1))
+        }
+        
+        if (count(cString) != 6) {
+            
+            self.init(red: 0, green: 0, blue: 0, alpha: 0)
+        }
+        else {
+            
+            var rgbValue:UInt32 = 0
+            NSScanner(string: cString).scanHexInt(&rgbValue)
+            
+            self.init(
+                red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                alpha: alpha
+            )
+        }
     }
 }
