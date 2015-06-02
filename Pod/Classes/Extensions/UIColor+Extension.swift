@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension UIColor{
+public extension UIColor {
     
-    class func randomColor() -> UIColor {
+    public class func randomColor() -> UIColor {
         
         var randomRed:CGFloat = CGFloat(drand48())
         var randomGreen:CGFloat = CGFloat(drand48())
