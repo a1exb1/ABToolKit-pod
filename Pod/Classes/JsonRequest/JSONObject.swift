@@ -89,13 +89,19 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
     public class func createObjectFromJson< T : JSONObject >(json:JSON) -> T {
         
         let dict = convertJsonToDictionary(json)
-        return T.createObjectFromDict(dict)
+        
+        let obj: T = T.createObjectFromDict(dict)
+        obj.setExtraPropertiesFromJSON(json) // TODO: add to delegate
+        
+        return obj
     }
     
     public func setPropertiesFromJson(json: JSON) {
         
         let dict = self.dynamicType.convertJsonToDictionary(json)
-        self.setPropertiesFromDictionary(dict)
+        
+        setPropertiesFromDictionary(dict)
+        setExtraPropertiesFromJSON(json) // TODO: add to delegate
     }
     
     public func setExtraPropertiesFromJSON(json:JSON) {
