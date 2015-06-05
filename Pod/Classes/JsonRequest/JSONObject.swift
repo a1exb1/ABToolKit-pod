@@ -124,7 +124,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return JSON(convertToDictionary(keysToInclude, includeNestedProperties: includeNestedProperties))
     }
     
-    func convertToDictionary(keysToInclude: Array<String>?, includeNestedProperties: Bool) -> Dictionary<String, AnyObject> {
+    public func convertToDictionary(keysToInclude: Array<String>?, includeNestedProperties: Bool) -> Dictionary<String, AnyObject> {
 
         var dict = Dictionary<String, AnyObject>()
 
