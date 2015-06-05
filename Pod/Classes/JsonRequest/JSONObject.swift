@@ -507,14 +507,14 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
             
             return JsonRequest.create(url + q, parameters: nil, method: .GET).onDownloadSuccess { (json, request) -> () in
                 
-                completion(objects: T.ConvertJsonToMultipleObjects(T.self, json: json))
+                completion(objects: T.convertJsonToMultipleObjects(json))
             }
         }
         
         return nil
     }
 
-    public class func ConvertJsonToMultipleObjects<T : JSONObject>(type: T.Type, json: JSON) -> Array<T> {
+    public class func convertJsonToMultipleObjects<T : JSONObject>(json: JSON) -> Array<T> {
         
         var objects = [T]()
         
