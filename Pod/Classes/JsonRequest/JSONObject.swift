@@ -522,7 +522,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         
         for (index: String, objectJSON: JSON) in json {
             
-            var object:T = self.createObjectFromJson(objectJSON)
+            var object:T = T.createObjectFromJson(objectJSON)
             objects.append(object)
         }
         
