@@ -32,8 +32,9 @@ protocol WebApiManagerDelegate {
     func webApiRestObjectID() -> Int?
 }
 
-@objc protocol JsonMappingDelegate {
-    optional func registerClassesForJsonMapping()
+protocol JsonMappingDelegate {
+    func registerClassesForJsonMapping()
+    func setExtraPropertiesFromJSON(json: JSON)
 }
 
 public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
@@ -228,7 +229,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         
         classMappings = Dictionary<String, Mapping>() // this is needed for some reason
         self.jsonMappingDelegate = self
-        jsonMappingDelegate?.registerClassesForJsonMapping?()
+        jsonMappingDelegate?.registerClassesForJsonMapping()
         
         for k in keysWithTypes() {
             
