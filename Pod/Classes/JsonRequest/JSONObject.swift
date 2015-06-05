@@ -514,7 +514,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return nil
     }
 
-    class func ConvertJsonToMultipleObjects<T : JSONObject>(type: T.Type, json: JSON) -> Array<T> {
+    public class func ConvertJsonToMultipleObjects<T : JSONObject>(type: T.Type, json: JSON) -> Array<T> {
         
         var objects = [T]()
         
