@@ -17,7 +17,8 @@ public extension UIView {
         })
     }
     
-    public func showLoader(){
+    public func showLoader() {
+        
         var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
         actInd.center = self.center
         actInd.hidesWhenStopped = true
@@ -29,8 +30,8 @@ public extension UIView {
         actInd.startAnimating()
     }
     
-    public func hideLoader(){
-        for v in self.subviews{
+    public func hideLoader() {
+        for v in self.subviews {
             if v is UIActivityIndicatorView{
                 v.stopAnimating()
             }
