@@ -48,6 +48,11 @@ public class JsonRequest: NSObject {
         return self
     }
     
+    public func onDownloadSuccessWithRequestInfo(success: (json: JSON, request: JsonRequest, httpUrlRequest: NSURLRequest?, httpUrlResponse: NSHTTPURLResponse?) -> ()) -> Self {
+        self.succeedDownloadClosuresWithRequestInfo.append(success)
+        return self
+    }
+    
     public func onContextSuccess(success: () -> ()) -> Self {
         self.succeedContextClosures.append(success)
         return self
