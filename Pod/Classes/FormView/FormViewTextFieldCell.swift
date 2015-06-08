@@ -89,7 +89,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             newText = formatter.stringFromNumber(numberFromField)
             
             textField.text = String(newText)
-            textFieldChanged(textField)
+            delegate?.valueDidChange(configuation.identifier, value: numberFromField)
             
             return false
         }
