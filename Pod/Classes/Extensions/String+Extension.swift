@@ -15,6 +15,11 @@ public extension String {
         return count(self.utf16)
     }
     
+    public func length() -> Int {
+        
+        return count(self.utf16)
+    }
+    
     public func contains(find: String) -> Bool {
         
         if let temp = self.rangeOfString(find) {
@@ -85,5 +90,19 @@ public extension String {
     public func removeLastCharacter() -> String {
         
         return self.substringToIndex(self.endIndex.predecessor())
+    }
+    
+    //MARK - Currency
+    
+    public func formatStringAsCurrency(locale: NSLocale) -> String {
+        
+        var newText:NSString = ""
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        formatter.locale = locale
+        var number = (NSString(string: self).doubleValue)/100
+        newText = formatter.stringFromNumber(number)!
+        
+        return String(newText)
     }
 }
