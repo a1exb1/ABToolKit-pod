@@ -96,12 +96,23 @@ public extension String {
     
     public func formatStringAsCurrency(locale: NSLocale) -> String {
         
-        var newText:NSString = ""
+        var newTextString = self
+        
+        let digits = NSCharacterSet.decimalDigitCharacterSet()
+        var digitText = ""
+        for c in newTextString.unicodeScalars {
+            if digits.longCharacterIsMember(c.value) {
+                digitText.append(c)
+            }
+        }
+        
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        formatter.locale = locale
-        var number = (NSString(string: self).doubleValue)/100
-        newText = formatter.stringFromNumber(number)!
+        formatter.locale = NSLocale(localeIdentifier: "en_GB")
+        var numberFromField = (NSString(string: digitText).doubleValue)/100
+        
+        var newText = ""
+        newText = formatter.stringFromNumber(numberFromField)!
         
         return String(newText)
     }
