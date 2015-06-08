@@ -115,6 +115,7 @@
 		E35E2BFDEF2B5A635772EA8D /* CompresJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5FB2551DCAF8236B1EAA3 /* CompresJSON.swift */; };
 		E41C96CE1B1CA9D70001C813 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41C96CD1B1CA9D70001C813 /* Session.swift */; };
 		E47B28E91B257EF900853EC2 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B28E81B257EF900853EC2 /* Int+Extension.swift */; };
+		E47B28EB1B25802D00853EC2 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47B28EA1B25802D00853EC2 /* Double+Extension.swift */; };
 		E4897648B1A4CBE7540CBC04 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E16A3288D6ECE8C22AB056 /* UILabel+Extension.swift */; };
 		E4A125091B1DE9560098AE3E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A125081B1DE9560098AE3E /* ImageLoader.swift */; };
 		E4A14A0F1B1CB62F00CBF400 /* oDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A14A0E1B1CB62F00CBF400 /* oDataQuery.swift */; };
@@ -347,6 +348,7 @@
 		E41C96CD1B1CA9D70001C813 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Models/Session.swift; sourceTree = "<group>"; };
 		E44A5454113C6F8B07482341 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
 		E47B28E81B257EF900853EC2 /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		E47B28EA1B25802D00853EC2 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		E4A125081B1DE9560098AE3E /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E4A14A0E1B1CB62F00CBF400 /* oDataQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oDataQuery.swift; sourceTree = "<group>"; };
 		E519B30687A1630CDC4BA643 /* CompresJSONSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompresJSONSettings.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				AA1459FC63CA993EB61E1782 /* UIView+Extension.swift */,
 				DF794767D42A204835A50DE8 /* UIViewController+Extension.swift */,
 				E47B28E81B257EF900853EC2 /* Int+Extension.swift */,
+				E47B28EA1B25802D00853EC2 /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1264,6 +1267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E47B28EB1B25802D00853EC2 /* Double+Extension.swift in Sources */,
 				E47B28E91B257EF900853EC2 /* Int+Extension.swift in Sources */,
 				E41C96CE1B1CA9D70001C813 /* Session.swift in Sources */,
 				AB541B071CD1BB1E3FD3144F /* Pods-ABToolKit-dummy.m in Sources */,
