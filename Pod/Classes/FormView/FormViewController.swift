@@ -78,6 +78,8 @@ public class FormViewController: BaseViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        formViewDelegate = self
+        
         setupTableView(tableView, delegate: self, dataSource: self)
         reloadForm()
     }
@@ -185,5 +187,23 @@ extension FormViewController: FormViewCellDelegate {
     public func valueDidChange(identifier: String, value: AnyObject) {
         
         formViewDelegate?.formViewElementChanged(identifier, value: value)
+    }
+}
+
+extension FormViewController: FormViewDelegate {
+    
+    public func formViewElementChanged(identifier: String, value: AnyObject) {
+        
+        
+    }
+    
+    public func formViewElements() -> Array<Array<FormViewConfiguration>> {
+        
+        return [[]]
+    }
+    
+    public func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, identifier: String) -> UITableViewCell {
+        
+        return UITableViewCell()
     }
 }
