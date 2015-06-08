@@ -52,10 +52,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'FBSnapshotTestCase.framework'
   install_framework 'SwiftyJSON.framework'
+  install_framework 'SwiftyUserDefaults.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'ABToolKit.framework'
   install_framework 'Alamofire.framework'
   install_framework 'FBSnapshotTestCase.framework'
   install_framework 'SwiftyJSON.framework'
+  install_framework 'SwiftyUserDefaults.framework'
 fi

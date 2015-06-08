@@ -10,11 +10,16 @@
 import UIKit
 import ABToolKit
 
+private let kTextFieldCellIdenfitier = "TextFieldCell"
+private let kButtonCellIdentifier = "ButtonCell"
+
 public enum FormCellType {
     
     case None
     case DatePicker
     case TextField
+    case TextFieldCurrency
+    case Button
 }
 
 public class FormViewConfiguration {
@@ -23,7 +28,7 @@ public class FormViewConfiguration {
     var formCellType = FormCellType.TextField
     var value: AnyObject?
     var identifier: String = ""
-    
+    var currencyLocale = NSLocale(localeIdentifier: "en_GB")
     
     private convenience init(labelText: String, formCellType: FormCellType, value: AnyObject?, identifier: String) {
         
@@ -43,12 +48,23 @@ public class FormViewConfiguration {
         
         return FormViewConfiguration(labelText: labelText, formCellType: FormCellType.TextField, value: value, identifier: identifier)
     }
+    
+    public class func textFieldCurrency(labelText: String, value: String?, identifier: String) -> FormViewConfiguration {
+        
+        return FormViewConfiguration(labelText: labelText, formCellType: FormCellType.TextFieldCurrency, value: value, identifier: identifier)
+    }
+    
+    public class func button(buttonText: String, identifier: String) -> FormViewConfiguration {
+        
+        return FormViewConfiguration(labelText: buttonText, formCellType: FormCellType.Button, value: nil, identifier: identifier)
+    }
 }
 
 public protocol FormViewDelegate {
     
     func formViewElements() -> Array<Array<FormViewConfiguration>>
     func formViewElementChanged(identifier: String, value: AnyObject)
+    func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, identifier: String) -> UITableViewCell
 }
 
 public class FormViewController: BaseViewController {
@@ -79,7 +95,8 @@ public class FormViewController: BaseViewController {
     override public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         super.setupTableView(tableView, delegate: delegate, dataSource: dataSource)
         
-        tableView.registerClass(FormViewTableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.registerClass(FormViewTextFieldCell.self, forCellReuseIdentifier: kTextFieldCellIdenfitier)
+        tableView.registerClass(FormViewButtonCell.self, forCellReuseIdentifier: kButtonCellIdentifier)
         tableView.allowsSelectionDuringEditing = true
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
@@ -105,7 +122,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         
         return 44
     }
-
+    
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -118,17 +135,39 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! FormViewTableViewCell
+    
         let config:FormViewConfiguration = data[indexPath.section][indexPath.row]
         
-        cell.delegate = self
-        cell.configuation = config
+        if config.formCellType == FormCellType.TextField || config.formCellType == FormCellType.TextFieldCurrency {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier(kTextFieldCellIdenfitier) as! FormViewTextFieldCell
+            
+            cell.delegate = self
+            cell.configuation = config
+            
+            cell.label.text = config.labelText
+            cell.textField.text = config.value as! String
+            
+            return cell
+        }
+        else if config.formCellType == FormCellType.Button {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier(kButtonCellIdentifier) as! FormViewButtonCell
+            
+            cell.delegate = self
+            cell.configuation = config
+            
+            return cell
+        }
+        else if config.formCellType == FormCellType.None {
+            
+            if let c = formViewDelegate?.formViewManuallySetCell(tableView, cellForRowAtIndexPath: indexPath, identifier: config.identifier) {
+                
+                return c
+            }
+        }
         
-        cell.label.text = config.labelText
-        cell.textField.text = config.value as! String
-        
-        return cell
+        return UITableViewCell()
     }
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
