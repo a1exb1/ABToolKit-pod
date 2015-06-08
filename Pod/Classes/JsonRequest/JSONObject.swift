@@ -538,7 +538,7 @@ public class JSONObject: NSObject, WebApiManagerDelegate, JsonMappingDelegate {
         return objects
     }
     
-    func modelIsValid() -> Bool {
+    public func modelIsValid() -> Bool {
         
         return true
     }
