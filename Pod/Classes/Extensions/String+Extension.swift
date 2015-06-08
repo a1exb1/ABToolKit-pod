@@ -91,29 +91,4 @@ public extension String {
         
         return self.substringToIndex(self.endIndex.predecessor())
     }
-    
-    //MARK - Currency
-    
-    public func formatStringAsCurrency(locale: NSLocale) -> String {
-        
-        var newTextString = self
-        
-        let digits = NSCharacterSet.decimalDigitCharacterSet()
-        var digitText = ""
-        for c in newTextString.unicodeScalars {
-            if digits.longCharacterIsMember(c.value) {
-                digitText.append(c)
-            }
-        }
-        
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        formatter.locale = NSLocale(localeIdentifier: "en_GB")
-        var numberFromField = (NSString(string: digitText).doubleValue)/100
-        
-        var newText = ""
-        newText = formatter.stringFromNumber(numberFromField)!
-        
-        return String(newText)
-    }
 }
