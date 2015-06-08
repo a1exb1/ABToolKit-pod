@@ -179,7 +179,14 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        let config:FormViewConfiguration = data[indexPath.section][indexPath.row]
+        
         selectedIndexPath = selectedIndexPath != indexPath ? indexPath : nil
+        
+        if config.formCellType == FormCellType.None || config.formCellType == FormCellType.Button {
+            
+            formViewDelegate?.formViewElementChanged(config.identifier, value: "")
+        }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         tableView.beginUpdates()
