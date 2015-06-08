@@ -58,6 +58,11 @@ public class FormViewConfiguration {
         
         return FormViewConfiguration(labelText: buttonText, formCellType: FormCellType.Button, value: nil, identifier: identifier)
     }
+    
+    public class func normalCell(identifier: String) -> FormViewConfiguration {
+        
+        return FormViewConfiguration(labelText: "", formCellType: FormCellType.None, value: nil, identifier: identifier)
+    }
 }
 
 public protocol FormViewDelegate {
