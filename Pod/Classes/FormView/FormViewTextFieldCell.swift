@@ -35,6 +35,7 @@ public class FormViewTextFieldCell: FormViewCell {
         else if configuation.formCellType == FormCellType.TextFieldCurrency {
             
             textField.delegate = self
+            textField.keyboardType = UIKeyboardType.DecimalPad
         }
     }
 
@@ -55,11 +56,7 @@ public class FormViewTextFieldCell: FormViewCell {
         textField.addRightConstraint(toView: contentView, relation: .Equal, constant: -kPadding)
         textField.addBottomConstraint(toView: contentView, relation: .Equal, constant: 0)
     }
-    
-    public func textFieldChanged(textField: UITextField) {
-        
-        delegate?.valueDidChange(configuation.identifier, value: textField.text)
-    }
+
 }
 
 
@@ -92,6 +89,11 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             delegate?.valueDidChange(configuation.identifier, value: numberFromField)
             
             return false
+        }
+        
+        else {
+            
+            delegate?.valueDidChange(configuation.identifier, value: textField.text)
         }
         
         return true
