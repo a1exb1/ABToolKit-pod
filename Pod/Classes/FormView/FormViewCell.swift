@@ -12,5 +12,16 @@ public class FormViewCell: UITableViewCell {
 
     public var config = FormViewConfiguration()
     public var formViewDelegate: FormViewDelegate?
-
+    
+    public var editable: Bool {
+        get {
+         
+            if let editable = formViewDelegate?.formViewElementIsEditable?(config.identifier) {
+                
+                return editable
+            }
+            
+            return true
+        }
+    }
 }

@@ -37,6 +37,8 @@ public class FormViewTextFieldCell: FormViewCell {
             textField.keyboardType = UIKeyboardType.DecimalPad
             textField.delegate = self
         }
+        
+        textField.userInteractionEnabled = editable
     }
     
     public func textFieldChanged(textField: UITextField) {
@@ -44,6 +46,7 @@ public class FormViewTextFieldCell: FormViewCell {
         formViewDelegate?.formViewTextFieldEditingChanged?(config.identifier, text: textField.text)
     }
 
+    
     // MARK: - Constraints
     
     public func setupLabelConstraints() {
@@ -61,9 +64,7 @@ public class FormViewTextFieldCell: FormViewCell {
         textField.addRightConstraint(toView: contentView, relation: .Equal, constant: -kPadding)
         textField.addBottomConstraint(toView: contentView, relation: .Equal, constant: 0)
     }
-
 }
-
 
 extension FormViewTextFieldCell: UITextFieldDelegate {
     

@@ -25,8 +25,14 @@ public class FormViewButtonCell: FormViewCell {
         button.fillSuperView(UIEdgeInsetsZero)
         
         button.setTitle(config.labelText, forState: UIControlState.Normal)
+        
+        if editable {
+            
+            button.addTarget(self, action: "buttonTapped", forControlEvents: UIControlEvents.TouchUpInside)
+            
+        }
+        
         button.titleLabel?.textColor = config.buttonTextColor
-        button.addTarget(self, action: "buttonTapped", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func buttonTapped() {

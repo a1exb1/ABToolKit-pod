@@ -24,6 +24,8 @@ private let kButtonCellIdentifier = "ButtonCell"
     optional func formViewDateChanged(identifier: String, date: NSDate)
     optional func formViewButtonTapped(identifier: String)
     optional func formViewDidSelectRow(identifier: String)
+    
+    optional func formViewElementIsEditable(identifier: String) -> Bool
 }
 
 public class FormViewController: BaseViewController {
@@ -32,7 +34,6 @@ public class FormViewController: BaseViewController {
     var data: Array<Array<FormViewConfiguration>> = []
     var selectedIndexPath: NSIndexPath?
     public var formViewDelegate: FormViewDelegate?
-    //var editingObjectToConfiguation: Dictionary<AnyObject, FormViewConfiguration> = []
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -159,17 +160,9 @@ extension FormViewController: FormViewDelegate {
         
         return [[]]
     }
-    
-//    public func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, config: FormViewConfiguration) -> UITableViewCell {
-//        
-//        return UITableViewCell()
-//    }
-//
-//    public func formViewTextFieldEditingChanged(config: FormViewConfiguration, text: String) {}
-//    public func formViewTextFieldCurrencyEditingChanged(config: FormViewConfiguration, value: Double) {}
-//    public func formViewDateChanged(config: FormViewConfiguration, date: NSDate) {}
-//    public func formViewButtonTapped(config: FormViewConfiguration) {}
-//    public func formViewDidSelectRow(config: FormViewConfiguration) {}
-    
 
+    public func formViewElementIsEditable(identifier: String) -> Bool {
+    
+        return true
+    }
 }
