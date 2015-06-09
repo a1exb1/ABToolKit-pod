@@ -24,6 +24,7 @@ private let kButtonCellIdentifier = "ButtonCell"
     optional func formViewDateChanged(identifier: String, date: NSDate)
     optional func formViewButtonTapped(identifier: String)
     optional func formViewDidSelectRow(identifier: String)
+    optional func formViewElementDidChange(identifier: String, value: AnyObject?)
     
     optional func formViewElementIsEditable(identifier: String) -> Bool
 }
@@ -165,4 +166,35 @@ extension FormViewController: FormViewDelegate {
     
         return true
     }
+    
+    public func formViewButtonTapped(identifier: String) {
+        
+        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+    }
+    
+    optional func formViewTextFieldEditingChanged(identifier: String, text: String) {
+        
+        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+    }
+    
+    optional func formViewTextFieldCurrencyEditingChanged(identifier: String, value: Double) {
+        
+        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+    }
+    
+    optional func formViewDateChanged(identifier: String, date: NSDate) {
+        
+        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+    }
+    
+    optional func formViewButtonTapped(identifier: String) {
+        
+        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+    }
+    
+    optional func formViewDidSelectRow(identifier: String) {
+        
+        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+    }
+    
 }
