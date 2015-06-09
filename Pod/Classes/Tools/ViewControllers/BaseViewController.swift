@@ -78,9 +78,9 @@ public class BaseViewController: UIViewController {
     
     public func dismissViewControllerFromCurrentContextAnimated(animated: Bool) {
         
-        if let navigationController = navigationController {
+        if navigationController?.viewControllers.count > 1 {
             
-            navigationController.popViewControllerAnimated(animated)
+            navigationController?.popViewControllerAnimated(animated)
         }
         else {
             
