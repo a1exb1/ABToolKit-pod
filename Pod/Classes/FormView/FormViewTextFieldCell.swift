@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kPadding: CGFloat = 10
+let kPadding: CGFloat = 5
 
 public class FormViewTextFieldCell: FormViewCell {
 
@@ -28,12 +28,20 @@ public class FormViewTextFieldCell: FormViewCell {
         setupLabelConstraints()
         setupTextFieldConstraints()
     
+        if configuation.formCellType == FormCellType.TextField {
+            
+            textField.addTarget(self, action: "textFieldChanged:", forControlEvents: UIControlEvents.EditingChanged)
+        }
         if configuation.formCellType == FormCellType.TextFieldCurrency {
             
             textField.keyboardType = UIKeyboardType.DecimalPad
+            textField.delegate = self
         }
+    }
+    
+    public func textFieldChanged(textField: UITextField) {
         
-        textField.delegate = self
+        delegate?.valueDidChange(configuation.identifier, value: textField.text)
     }
 
     // MARK: - Constraints
@@ -86,11 +94,6 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             delegate?.valueDidChange(configuation.identifier, value: numberFromField)
             
             return false
-        }
-        
-        else {
-            
-            delegate?.valueDidChange(configuation.identifier, value: string)
         }
         
         return true
