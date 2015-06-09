@@ -188,6 +188,11 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
             formViewDelegate?.formViewElementChanged(config.identifier, value: "")
         }
         
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? FormViewTextFieldCell {
+            
+            cell.textField.becomeFirstResponder()
+        }
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         tableView.beginUpdates()
         tableView.endUpdates()
