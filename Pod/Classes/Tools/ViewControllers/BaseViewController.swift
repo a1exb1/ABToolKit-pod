@@ -44,6 +44,7 @@ public class BaseViewController: UIViewController {
         
         tableView.dataSource = dataSource
         tableView.delegate = delegate
+        tableViews.append(tableView)
         
         setupTableViewRefreshControl(tableView)
     }
