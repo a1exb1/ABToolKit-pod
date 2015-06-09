@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kPadding: CGFloat = 5
+let kPadding: CGFloat = 15
 
 public class FormViewTextFieldCell: FormViewCell {
 
@@ -28,11 +28,11 @@ public class FormViewTextFieldCell: FormViewCell {
         setupLabelConstraints()
         setupTextFieldConstraints()
     
-        if configuation.formCellType == FormCellType.TextField {
+        if config.formCellType == FormCellType.TextField {
             
             textField.addTarget(self, action: "textFieldChanged:", forControlEvents: UIControlEvents.EditingChanged)
         }
-        if configuation.formCellType == FormCellType.TextFieldCurrency {
+        if config.formCellType == FormCellType.TextFieldCurrency {
             
             textField.keyboardType = UIKeyboardType.DecimalPad
             textField.delegate = self
@@ -41,7 +41,7 @@ public class FormViewTextFieldCell: FormViewCell {
     
     public func textFieldChanged(textField: UITextField) {
         
-        delegate?.valueDidChange(configuation.identifier, value: textField.text)
+        formViewDelegate?.formViewTextFieldEditingChanged(config, text: textField.text)
     }
 
     // MARK: - Constraints
@@ -69,7 +69,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        if configuation.formCellType == FormCellType.TextFieldCurrency {
+        if config.formCellType == FormCellType.TextFieldCurrency {
             
             // Construct the text that will be in the field if this change is accepted
             var oldText = textField.text as NSString
@@ -86,12 +86,12 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             
             let formatter = NSNumberFormatter()
             formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-            formatter.locale = configuation.currencyLocale
+            formatter.locale = config.currencyLocale
             var numberFromField = (NSString(string: digitText).doubleValue)/100
             newText = formatter.stringFromNumber(numberFromField)
             
             textField.text = String(newText)
-            delegate?.valueDidChange(configuation.identifier, value: numberFromField)
+            formViewDelegate?.formViewTextFieldCurrencyEditingChanged(config, value: numberFromField)
             
             return false
         }

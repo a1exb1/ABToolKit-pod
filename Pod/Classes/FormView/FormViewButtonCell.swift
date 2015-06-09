@@ -24,7 +24,13 @@ public class FormViewButtonCell: FormViewCell {
         contentView.addSubview(button)
         button.fillSuperView(UIEdgeInsetsZero)
         
-        button.setTitle(configuation.labelText, forState: UIControlState.Normal)
-        button.titleLabel?.textColor = configuation.buttonTextColor
+        button.setTitle(config.labelText, forState: UIControlState.Normal)
+        button.titleLabel?.textColor = config.buttonTextColor
+        button.addTarget(self, action: "buttonTapped", forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func buttonTapped() {
+        
+        formViewDelegate?.formViewButtonTapped(config)
     }
 }

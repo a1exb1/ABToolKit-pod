@@ -8,14 +8,9 @@
 
 import UIKit
 
-public protocol FormViewCellDelegate {
-    
-    func valueDidChange(identifier: String, value: AnyObject)
-}
-
 public class FormViewCell: UITableViewCell {
 
-    public var configuation = FormViewConfiguration()
-    public var delegate: FormViewCellDelegate?
+    public var config = FormViewConfiguration()
+    public var formViewDelegate: FormViewDelegate?
 
 }
