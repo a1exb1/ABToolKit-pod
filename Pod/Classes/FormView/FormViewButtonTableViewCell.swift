@@ -23,5 +23,7 @@ public class FormViewButtonCell: FormViewCell {
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         contentView.addSubview(button)
         button.fillSuperView(UIEdgeInsetsZero)
+        
+        button.setTitle(configuation.labelText, forState: UIControlState.Normal)
     }
 }

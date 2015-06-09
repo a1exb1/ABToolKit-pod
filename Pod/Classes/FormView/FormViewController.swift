@@ -28,7 +28,12 @@ public class FormViewConfiguration {
     var formCellType = FormCellType.TextField
     var value: AnyObject?
     var identifier: String = ""
+    
+    //currency
     var currencyLocale = NSLocale(localeIdentifier: "en_GB")
+    
+    //button
+    var buttonTextColor = UIColor.blueColor()
     
     private convenience init(labelText: String, formCellType: FormCellType, value: AnyObject?, identifier: String) {
         
@@ -51,12 +56,27 @@ public class FormViewConfiguration {
     
     public class func textFieldCurrency(labelText: String, value: String?, identifier: String) -> FormViewConfiguration {
         
-        return FormViewConfiguration(labelText: labelText, formCellType: FormCellType.TextFieldCurrency, value: value, identifier: identifier)
+        return textFieldCurrency(labelText, value: value, identifier: identifier, locale: nil)
     }
     
-    public class func button(buttonText: String, identifier: String) -> FormViewConfiguration {
+    public class func textFieldCurrency(labelText: String, value: String?, identifier: String, locale: NSLocale?) -> FormViewConfiguration {
         
-        return FormViewConfiguration(labelText: buttonText, formCellType: FormCellType.Button, value: nil, identifier: identifier)
+        let config = FormViewConfiguration(labelText: labelText, formCellType: FormCellType.TextFieldCurrency, value: value, identifier: identifier)
+        
+        if let l = locale {
+            
+            config.currencyLocale = l
+        }
+        
+        return config
+    }
+    
+    public class func button(buttonText: String, buttonTextColor: UIColor, identifier: String) -> FormViewConfiguration {
+        
+        let config = FormViewConfiguration(labelText: buttonText, formCellType: FormCellType.Button, value: nil, identifier: identifier)
+        config.buttonTextColor = buttonTextColor
+        
+        return config
     }
     
     public class func normalCell(identifier: String) -> FormViewConfiguration {
