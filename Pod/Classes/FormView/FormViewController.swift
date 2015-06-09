@@ -169,32 +169,26 @@ extension FormViewController: FormViewDelegate {
     
     public func formViewButtonTapped(identifier: String) {
         
-        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
     }
     
-    optional func formViewTextFieldEditingChanged(identifier: String, text: String) {
+    public func formViewTextFieldEditingChanged(identifier: String, text: String) {
         
-        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
     }
     
-    optional func formViewTextFieldCurrencyEditingChanged(identifier: String, value: Double) {
+    public func formViewTextFieldCurrencyEditingChanged(identifier: String, value: Double) {
         
-        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
     }
     
-    optional func formViewDateChanged(identifier: String, date: NSDate) {
+    public func formViewDateChanged(identifier: String, date: NSDate) {
         
-        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
     }
     
-    optional func formViewButtonTapped(identifier: String) {
+    public func formViewDidSelectRow(identifier: String) {
         
-        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
+        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
     }
-    
-    optional func formViewDidSelectRow(identifier: String) {
-        
-        formViewDelegate?.formViewElementDidChange(identifier, value: nil)
-    }
-    
 }
