@@ -57,10 +57,10 @@
 		384E2C6B157FC6201404B049 /* Pods-Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71612872BA1AD7C9AD4DD86F /* Pods-Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A01E1010EE1B509FB8065E4 /* Pods-Tests-SwiftyUserDefaults-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BFE4C742F4BA37021296A5 /* Pods-Tests-SwiftyUserDefaults-dummy.m */; };
 		3ADE6C98CA2F34E587F69D96 /* CompresJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7606ACA5EC49D4FBFD3B6A2 /* CompresJsonRequest.swift */; };
-		3C9A8BA821849E3A7B6F4530 /* FormViewButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59343F65B87D70708FAF1AFC /* FormViewButtonTableViewCell.swift */; };
+		3C9A8BA821849E3A7B6F4530 /* FormViewButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59343F65B87D70708FAF1AFC /* FormViewButtonCell.swift */; };
 		3DC0041FA7B90E01C98834A1 /* ABToolKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A3B3C412A241675B09171224 /* ABToolKit.bundle */; };
 		3EB26B014BC02ECB239C12B2 /* CompresJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8756F89AEDEC28DB3D904 /* CompresJSON.swift */; };
-		411AAF1D5C0B5753D543A2E3 /* FormViewButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59343F65B87D70708FAF1AFC /* FormViewButtonTableViewCell.swift */; };
+		411AAF1D5C0B5753D543A2E3 /* FormViewButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59343F65B87D70708FAF1AFC /* FormViewButtonCell.swift */; };
 		41741EAB56D4C384348F5F2F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21264B4DE97CD778ABDB033 /* Session.swift */; };
 		45438EE1F3763133208453DB /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CCB920EFC6B5E2103EFD48 /* Download.swift */; };
 		456DD50E90C03A08AC97B2E0 /* AutoLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB9B635329C057291250BE /* AutoLayoutHelper.swift */; };
@@ -349,7 +349,7 @@
 		57B52B2DC6D55D11A363AC2D /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
 		588B8607E6D811235E663B77 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5908AEE21F663C273DED6A5A /* WebApiManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WebApiManager.swift; sourceTree = "<group>"; };
-		59343F65B87D70708FAF1AFC /* FormViewButtonTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormViewButtonTableViewCell.swift; sourceTree = "<group>"; };
+		59343F65B87D70708FAF1AFC /* FormViewButtonCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FormViewButtonCell.swift; sourceTree = "<group>"; };
 		593DB8CD03F4B53B7886C8B3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5CA3F70D349135C7ADBFD184 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		61F0346B97725C83402AA2A5 /* Int+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -735,7 +735,7 @@
 		576E49679FC86EFE5C9EF253 /* FormView */ = {
 			isa = PBXGroup;
 			children = (
-				59343F65B87D70708FAF1AFC /* FormViewButtonTableViewCell.swift */,
+				59343F65B87D70708FAF1AFC /* FormViewButtonCell.swift */,
 				DE05135B216304EED54C7E48 /* FormViewCell.swift */,
 				3BF13FE0ED0CC156C09A7338 /* FormViewController.swift */,
 				6E315673664D9007CCC624C2 /* FormViewTextFieldCell.swift */,
@@ -1496,7 +1496,7 @@
 				CD8BA9261914CD1B7170F4EF /* DateRange.swift in Sources */,
 				1F557405EE2CB85E5834D7CE /* Double+Extension.swift in Sources */,
 				469547DAACEDC610FDE47139 /* Encryptor.swift in Sources */,
-				3C9A8BA821849E3A7B6F4530 /* FormViewButtonTableViewCell.swift in Sources */,
+				3C9A8BA821849E3A7B6F4530 /* FormViewButtonCell.swift in Sources */,
 				8FD2BAF9AFAAC22E12BC771E /* FormViewCell.swift in Sources */,
 				37A6E09BDF71FAA16689636D /* FormViewController.swift in Sources */,
 				2593A189FC605590F2407A00 /* FormViewTextFieldCell.swift in Sources */,
@@ -1602,7 +1602,7 @@
 				A028E3155EB4BE0D290116CA /* DateRange.swift in Sources */,
 				EEEDA64B90D35872780DC178 /* Double+Extension.swift in Sources */,
 				569AE420553B9C66216219CC /* Encryptor.swift in Sources */,
-				411AAF1D5C0B5753D543A2E3 /* FormViewButtonTableViewCell.swift in Sources */,
+				411AAF1D5C0B5753D543A2E3 /* FormViewButtonCell.swift in Sources */,
 				717E35FE1C71184CF3D3ABD5 /* FormViewCell.swift in Sources */,
 				F73B7193CBCA1D057C606B53 /* FormViewController.swift in Sources */,
 				F80F2AE1EF477242D0AE1D99 /* FormViewTextFieldCell.swift in Sources */,

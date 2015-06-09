@@ -25,5 +25,6 @@ public class FormViewButtonCell: FormViewCell {
         button.fillSuperView(UIEdgeInsetsZero)
         
         button.setTitle(configuation.labelText, forState: UIControlState.Normal)
+        button.titleLabel?.textColor = configuation.buttonTextColor
     }
 }
