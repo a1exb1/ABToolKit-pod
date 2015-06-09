@@ -73,5 +73,19 @@ public class BaseViewController: UIViewController {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
+    
+    //MARK: - Dismiss view controller
+    
+    public func dismissViewControllerFromCurrentContextAnimated(animated: Bool) {
+        
+        if let navigationController = navigationController {
+            
+            navigationController.popViewControllerAnimated(animated)
+        }
+        else {
+            
+            dismissViewControllerAnimated(animated, completion: nil)
+        }
+    }
 }
 
