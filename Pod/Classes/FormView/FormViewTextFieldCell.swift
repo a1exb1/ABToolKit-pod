@@ -90,7 +90,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
         
         else {
             
-            delegate?.valueDidChange(configuation.identifier, value: textField.text)
+            delegate?.valueDidChange(configuation.identifier, value: string)
         }
         
         return true
