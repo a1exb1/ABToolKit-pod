@@ -44,6 +44,7 @@ public class FormViewTextFieldCell: FormViewCell {
     public func textFieldChanged(textField: UITextField) {
         
         formViewDelegate?.formViewTextFieldEditingChanged?(config.identifier, text: textField.text)
+        formViewDelegate?.formViewElementDidChange?(config.identifier, value: textField.text)
     }
 
     
@@ -93,6 +94,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             
             textField.text = String(newText)
             formViewDelegate?.formViewTextFieldCurrencyEditingChanged?(config.identifier, value: numberFromField)
+            formViewDelegate?.formViewElementDidChange?(config.identifier, value: numberFromField)
             
             return false
         }

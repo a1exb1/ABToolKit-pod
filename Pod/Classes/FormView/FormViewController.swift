@@ -166,29 +166,4 @@ extension FormViewController: FormViewDelegate {
     
         return true
     }
-    
-    public func formViewButtonTapped(identifier: String) {
-        
-        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
-    }
-    
-    public func formViewTextFieldEditingChanged(identifier: String, text: String) {
-        
-        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
-    }
-    
-    public func formViewTextFieldCurrencyEditingChanged(identifier: String, value: Double) {
-        
-        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
-    }
-    
-    public func formViewDateChanged(identifier: String, date: NSDate) {
-        
-        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
-    }
-    
-    public func formViewDidSelectRow(identifier: String) {
-        
-        formViewDelegate?.formViewElementDidChange?(identifier, value: nil)
-    }
 }
