@@ -41,7 +41,7 @@ public class FormViewTextFieldCell: FormViewCell {
     
     public func textFieldChanged(textField: UITextField) {
         
-        formViewDelegate?.formViewTextFieldEditingChanged(config, text: textField.text)
+        formViewDelegate?.formViewTextFieldEditingChanged?(config.identifier, text: textField.text)
     }
 
     // MARK: - Constraints
@@ -91,7 +91,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             newText = formatter.stringFromNumber(numberFromField)
             
             textField.text = String(newText)
-            formViewDelegate?.formViewTextFieldCurrencyEditingChanged(config, value: numberFromField)
+            formViewDelegate?.formViewTextFieldCurrencyEditingChanged?(config.identifier, value: numberFromField)
             
             return false
         }

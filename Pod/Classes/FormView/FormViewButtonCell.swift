@@ -31,6 +31,6 @@ public class FormViewButtonCell: FormViewCell {
     
     func buttonTapped() {
         
-        formViewDelegate?.formViewButtonTapped(config)
+        formViewDelegate?.formViewButtonTapped?(config.identifier)
     }
 }

@@ -13,88 +13,17 @@ import ABToolKit
 private let kTextFieldCellIdenfitier = "TextFieldCell"
 private let kButtonCellIdentifier = "ButtonCell"
 
-public enum FormCellType {
-    
-    case None
-    case DatePicker
-    case TextField
-    case TextFieldCurrency
-    case Button
-}
 
-public class FormViewConfiguration {
-    
-    var labelText: String = ""
-    var formCellType = FormCellType.TextField
-    var value: AnyObject?
-    var identifier: String = ""
-    
-    //currency
-    var currencyLocale = NSLocale(localeIdentifier: "en_GB")
-    
-    //button
-    var buttonTextColor = UIColor.blueColor()
-    
-    private convenience init(labelText: String, formCellType: FormCellType, value: AnyObject?, identifier: String) {
-        
-        self.init()
-        self.labelText = labelText
-        self.formCellType = formCellType
-        self.value = value
-        self.identifier = identifier
-    }
-    
-    public class func date(labelText: String, date: NSDate?, identifier: String) -> FormViewConfiguration {
-        
-        return FormViewConfiguration(labelText: labelText, formCellType: FormCellType.DatePicker, value: date, identifier: identifier)
-    }
-    
-    public class func textField(labelText: String, value: String?, identifier: String) -> FormViewConfiguration {
-        
-        return FormViewConfiguration(labelText: labelText, formCellType: FormCellType.TextField, value: value, identifier: identifier)
-    }
-    
-    public class func textFieldCurrency(labelText: String, value: String?, identifier: String) -> FormViewConfiguration {
-        
-        return textFieldCurrency(labelText, value: value, identifier: identifier, locale: nil)
-    }
-    
-    public class func textFieldCurrency(labelText: String, value: String?, identifier: String, locale: NSLocale?) -> FormViewConfiguration {
-        
-        let config = FormViewConfiguration(labelText: labelText, formCellType: FormCellType.TextFieldCurrency, value: value, identifier: identifier)
-        
-        if let l = locale {
-            
-            config.currencyLocale = l
-        }
-        
-        return config
-    }
-    
-    public class func button(buttonText: String, buttonTextColor: UIColor, identifier: String) -> FormViewConfiguration {
-        
-        let config = FormViewConfiguration(labelText: buttonText, formCellType: FormCellType.Button, value: nil, identifier: identifier)
-        config.buttonTextColor = buttonTextColor
-        
-        return config
-    }
-    
-    public class func normalCell(identifier: String) -> FormViewConfiguration {
-        
-        return FormViewConfiguration(labelText: "", formCellType: FormCellType.None, value: nil, identifier: identifier)
-    }
-}
-
-public protocol FormViewDelegate {
+@objc public protocol FormViewDelegate {
     
     func formViewElements() -> Array<Array<FormViewConfiguration>>
-    func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, config: FormViewConfiguration) -> UITableViewCell
+    optional func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, identifier: String) -> UITableViewCell
     
-    func formViewTextFieldEditingChanged(config: FormViewConfiguration, text: String)
-    func formViewTextFieldCurrencyEditingChanged(config: FormViewConfiguration, value: Double)
-    func formViewDateChanged(config: FormViewConfiguration, date: NSDate)
-    func formViewButtonTapped(config: FormViewConfiguration)
-    func formViewDidSelectRow(config: FormViewConfiguration)
+    optional func formViewTextFieldEditingChanged(identifier: String, text: String)
+    optional func formViewTextFieldCurrencyEditingChanged(identifier: String, value: Double)
+    optional func formViewDateChanged(identifier: String, date: NSDate)
+    optional func formViewButtonTapped(identifier: String)
+    optional func formViewDidSelectRow(identifier: String)
 }
 
 public class FormViewController: BaseViewController {
@@ -193,7 +122,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else if config.formCellType == FormCellType.None {
             
-            if let c = formViewDelegate?.formViewManuallySetCell(tableView, cellForRowAtIndexPath: indexPath, config: config) {
+            if let c = formViewDelegate?.formViewManuallySetCell?(tableView, cellForRowAtIndexPath: indexPath, identifier: config.identifier) {
                 
                 return c
             }
@@ -210,7 +139,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         
         if config.formCellType == FormCellType.None {
             
-            formViewDelegate?.formViewDidSelectRow(config)
+            formViewDelegate?.formViewDidSelectRow?(config.identifier)
         }
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? FormViewTextFieldCell {
@@ -231,16 +160,16 @@ extension FormViewController: FormViewDelegate {
         return [[]]
     }
     
-    public func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, config: FormViewConfiguration) -> UITableViewCell {
-        
-        return UITableViewCell()
-    }
-
-    public func formViewTextFieldEditingChanged(config: FormViewConfiguration, text: String) {}
-    public func formViewTextFieldCurrencyEditingChanged(config: FormViewConfiguration, value: Double) {}
-    public func formViewDateChanged(config: FormViewConfiguration, date: NSDate) {}
-    public func formViewButtonTapped(config: FormViewConfiguration) {}
-    public func formViewDidSelectRow(config: FormViewConfiguration) {}
+//    public func formViewManuallySetCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, config: FormViewConfiguration) -> UITableViewCell {
+//        
+//        return UITableViewCell()
+//    }
+//
+//    public func formViewTextFieldEditingChanged(config: FormViewConfiguration, text: String) {}
+//    public func formViewTextFieldCurrencyEditingChanged(config: FormViewConfiguration, value: Double) {}
+//    public func formViewDateChanged(config: FormViewConfiguration, date: NSDate) {}
+//    public func formViewButtonTapped(config: FormViewConfiguration) {}
+//    public func formViewDidSelectRow(config: FormViewConfiguration) {}
     
 
 }
