@@ -27,16 +27,13 @@ public class FormViewTextFieldCell: FormViewCell {
         
         setupLabelConstraints()
         setupTextFieldConstraints()
-        
-        if configuation.formCellType == FormCellType.TextField {
+    
+        if configuation.formCellType == FormCellType.TextFieldCurrency {
             
-            textField.addTarget(self, action: "textFieldChanged:", forControlEvents: UIControlEvents.EditingChanged)
-        }
-        else if configuation.formCellType == FormCellType.TextFieldCurrency {
-            
-            textField.delegate = self
             textField.keyboardType = UIKeyboardType.DecimalPad
         }
+        
+        textField.delegate = self
     }
 
     // MARK: - Constraints
