@@ -96,7 +96,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             
             if config.currencyLocale == NSLocale(localeIdentifier: "da_DK") {
                 
-                textField.text = textField.text.replaceString(" kr", withString: "")
+                textField.text = textField.text.replaceString("kr", withString: "").removeLastCharacter()
                 textField.text = "kr, \(textField.text)"
             }
             
