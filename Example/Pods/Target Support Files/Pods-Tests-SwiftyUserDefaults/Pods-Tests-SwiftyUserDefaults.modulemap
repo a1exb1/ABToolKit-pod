@@ -1,0 +1,6 @@
+framework module SwiftyUserDefaults {
+  umbrella header "Pods-Tests-SwiftyUserDefaults-umbrella.h"
+
+  export *
+  module * { export * }
+}
