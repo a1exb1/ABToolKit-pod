@@ -12,8 +12,8 @@ import SwiftyJSON
 
 public class CompresJsonRequest: JsonRequest {
    
-    var shouldEncrypt = false
-    var shouldCompress = false
+    var shouldEncrypt = CompresJSON.sharedInstance().settings.shouldEncrypt
+    var shouldCompress = CompresJSON.sharedInstance().settings.shouldCompress
     var acceptEncoding = ""
     
     override public class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) -> T {
@@ -21,22 +21,22 @@ public class CompresJsonRequest: JsonRequest {
         return CompresJsonRequest(urlString: urlString, parameters: parameters, method: method) as! T
     }
     
-    public class func create(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method, shouldEncrypt:Bool, acceptEncoding: String) -> CompresJsonRequest {
-        
-        return CompresJsonRequest(urlString: urlString, parameters: parameters, method: method, shouldEncrypt: shouldEncrypt, acceptEncoding: acceptEncoding)
-    }
+//    public class func create(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method, shouldEncrypt:Bool, acceptEncoding: String) -> CompresJsonRequest {
+//        
+//        return CompresJsonRequest(urlString: urlString, parameters: parameters, method: method, shouldEncrypt: shouldEncrypt, acceptEncoding: acceptEncoding)
+//    }
     
-    convenience init(urlString: String, parameters: Dictionary<String, AnyObject>?, method: Alamofire.Method, shouldEncrypt: Bool, acceptEncoding: String) {
-        self.init()
-        
-        self.urlString = urlString
-        self.parameters = parameters
-        self.method = method
-        self.shouldEncrypt = shouldEncrypt
-        self.acceptEncoding = acceptEncoding
-        
-        exec()
-    }
+//    convenience init(urlString: String, parameters: Dictionary<String, AnyObject>?, method: Alamofire.Method, shouldEncrypt: Bool, acceptEncoding: String) {
+//        self.init()
+//        
+//        self.urlString = urlString
+//        self.parameters = parameters
+//        self.method = method
+//        self.shouldEncrypt = shouldEncrypt
+//        self.acceptEncoding = acceptEncoding
+//        
+//        exec()
+//    }
     
     internal override func exec() {
         
@@ -44,13 +44,16 @@ public class CompresJsonRequest: JsonRequest {
         
         if let params = self.parameters {
             
-            var err: NSError?
-            var json: String = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)!.toString()
-            
-            json = CompresJSON.encryptAndCompressAsNecessary(json, shouldEncrypt: shouldEncrypt, shouldCompress: shouldCompress)
-            
-            self.parameters = Dictionary<String, AnyObject>()
-            self.parameters!["data"] = json
+            if shouldEncrypt {
+                
+                var err: NSError?
+                var json: String = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)!.toString()
+                
+                json = CompresJSON.encryptAndCompressAsNecessary(json, shouldEncrypt: shouldEncrypt, shouldCompress: shouldCompress)
+                
+                self.parameters = Dictionary<String, AnyObject>()
+                self.parameters!["data"] = json
+            }
         }
         
         self.alamofireRequest = request(self.method, self.urlString, parameters: self.parameters, encoding: ParameterEncoding.URL)

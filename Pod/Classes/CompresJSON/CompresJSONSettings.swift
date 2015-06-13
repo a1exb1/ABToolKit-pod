@@ -11,7 +11,7 @@ import UIKit
 public class CompresJSONSettings: NSObject {
    
     public var encryptionKey = ""
-    //public var shouldCompress = false
-    //public var shouldEncrypt = true
+    public var shouldCompress = false
+    public var shouldEncrypt = false
     public var encryptUrlComponents = false
 }
