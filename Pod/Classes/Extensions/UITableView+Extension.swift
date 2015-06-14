@@ -6,19 +6,19 @@
 //
 //
 
-//import UIKit
-//
-//extension UITableView {
-//    
-//    func dequeOrCreateTableViewCell(type: AnyClass, cellIdentifier: String) {
-//        
-//        let dequeuedCell = self.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
-//        
-//        if dequeuedCell.self is type {
-//            
-//            
-//        }
-//        
-//        let cell = dequeuedCell != nil ? dequeuedCell! : UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
-//    }
-//}
+import UIKit
+
+extension UITableView {
+    
+    func dequeTableViewCellOrCreate(identifier: String, requireNewCell: () -> (UITableViewCell)) -> UITableViewCell {
+        
+        if let dequeuedCell = dequeueReusableCellWithIdentifier(identifier) as? UITableViewCell {
+            
+            return dequeuedCell
+        }
+        else {
+            
+            return requireNewCell()
+        }
+    }
+}
