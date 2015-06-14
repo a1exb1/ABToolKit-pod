@@ -10,7 +10,7 @@ import UIKit
 
 public extension UITableView {
     
-    public func dequeueOrCreateReusableCellWithIdentifier(identifier: String, requireNewCell: () -> (UITableViewCell)) -> UITableViewCell {
+    public func dequeueOrCreateReusableCellWithIdentifier(identifier: String, requireNewCell: (identifier: String) -> (UITableViewCell)) -> UITableViewCell {
         
         if let dequeuedCell = dequeueReusableCellWithIdentifier(identifier) as? UITableViewCell {
             
@@ -18,7 +18,7 @@ public extension UITableView {
         }
         else {
             
-            return requireNewCell()
+            return requireNewCell(identifier: identifier)
         }
     }
 }
