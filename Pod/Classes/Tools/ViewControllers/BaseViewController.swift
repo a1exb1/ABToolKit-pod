@@ -46,7 +46,7 @@ public class BaseViewController: UIViewController {
         tableView.delegate = delegate
         tableViews.append(tableView)
         
-        setupTableViewRefreshControl(tableView)
+        tableView.reloadData()
     }
     
     func setupTableViewRefreshControl(tableView: UITableView) {
