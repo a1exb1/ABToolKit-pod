@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     
-    func dequeTableViewCellOrCreate(identifier: String, requireNewCell: () -> (UITableViewCell)) -> UITableViewCell {
+    public func dequeueTableViewCellOrCreate(identifier: String, requireNewCell: () -> (UITableViewCell)) -> UITableViewCell {
         
         if let dequeuedCell = dequeueReusableCellWithIdentifier(identifier) as? UITableViewCell {
             
