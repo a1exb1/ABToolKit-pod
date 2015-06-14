@@ -56,7 +56,7 @@ public class BaseViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    public unc setupTableViewConstraints(tableView: UITableView) {
+    public func setupTableViewConstraints(tableView: UITableView) {
         
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
         tableView.fillSuperView(UIEdgeInsetsZero)
