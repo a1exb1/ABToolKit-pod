@@ -37,6 +37,12 @@ public class BaseViewController: UIViewController {
         }
     }
     
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        refreshRequest?.cancel()
+    }
+    
     public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource:UITableViewDataSource) {
         
         view.addSubview(tableView)
