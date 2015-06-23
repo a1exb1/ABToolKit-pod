@@ -51,6 +51,19 @@ public class BaseViewController: UIViewController {
             for tableView in tableViews {
                 
                 deselectSelectedCell(tableView)
+                
+                var navigationBarHeight:CGFloat = 0
+                
+                if let navigationBar = navigationController?.navigationBar {
+                    
+                    navigationBarHeight = navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
+                }
+                
+                let originalContentInset = tableViewOriginalInsetInfo[tableView]!.contentInset
+                let originalScrollIndicatorInsets = tableViewOriginalInsetInfo[tableView]!.scrollIndicatorInsets
+                
+                tableView.contentInset = UIEdgeInsets(top: originalContentInset.top + navigationBarHeight, left: originalContentInset.left, bottom: originalContentInset.bottom, right: originalContentInset.right)
+                tableView.scrollIndicatorInsets = UIEdgeInsets(top: originalScrollIndicatorInsets.top + navigationBarHeight, left: originalScrollIndicatorInsets.left, bottom: originalScrollIndicatorInsets.bottom, right: originalScrollIndicatorInsets.right)
             }
         }
     }
@@ -122,7 +135,7 @@ public class BaseViewController: UIViewController {
     
     //MARK: - Notification methods
     
-    func keyboardDidChangeFrame(notification:NSNotification){
+    func keyboardDidChangeFrame(notification:NSNotification) {
         
         if shouldAdjustTableViewInsetsForKeyboard {
             
