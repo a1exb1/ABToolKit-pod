@@ -58,6 +58,7 @@ public class FormViewTextFieldCell: FormViewCell {
         datePicker = UIDatePicker()
         datePicker?.date = config.value as! NSDate
         datePicker?.addTarget(self, action: "datePickerValueDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+        datePicker?.backgroundColor = UIColor.whiteColor()
         datePicker?.sizeToFit()
     }
     
