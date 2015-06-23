@@ -30,7 +30,7 @@ public class BaseViewController: UIViewController {
     var tableViewConstraints = Dictionary<ConstraintReference, NSLayoutConstraint>()
     
     public var shouldDeselectCellOnViewWillAppear = true
-    var shouldAdjustTableViewInsetsForKeyboard = true
+    public var shouldAdjustTableViewInsetsForKeyboard = true
     
     
     public override func viewDidLoad() {
