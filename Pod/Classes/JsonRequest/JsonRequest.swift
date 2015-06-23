@@ -153,10 +153,18 @@ public class JsonRequest: NSObject {
                 else{
                     
                     let json = JSON(data: data! as! NSData)
-                    self.succeedDownload(json, httpUrlRequest: request, httpUrlResponse: response)
+                    
+                    if self.active {
+                        
+                        self.succeedDownload(json, httpUrlRequest: request, httpUrlResponse: response)
+                    }
                 }
                 
-                self.finishDownload()
+                if self.active {
+                    
+                    self.finishDownload()
+                }
+                
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
     }
