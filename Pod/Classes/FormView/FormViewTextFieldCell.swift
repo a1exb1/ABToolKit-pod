@@ -56,6 +56,7 @@ public class FormViewTextFieldCell: FormViewCell {
     func setupDatePicker() {
         
         datePicker = UIDatePicker()
+        datePicker?.date = config.value as! NSDate
         datePicker?.addTarget(self, action: "datePickerValueDidChange:", forControlEvents: UIControlEvents.ValueChanged)
         datePicker?.sizeToFit()
     }
