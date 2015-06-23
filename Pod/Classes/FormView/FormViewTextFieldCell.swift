@@ -42,6 +42,7 @@ public class FormViewTextFieldCell: FormViewCell {
 
             setupDatePicker()
             textField.inputView = datePicker!
+            textField.tintColor = UIColor.clearColor()
         }
         
         textField.userInteractionEnabled = editable
@@ -58,7 +59,7 @@ public class FormViewTextFieldCell: FormViewCell {
         datePicker = UIDatePicker()
         datePicker?.date = config.value as! NSDate
         datePicker?.addTarget(self, action: "datePickerValueDidChange:", forControlEvents: UIControlEvents.ValueChanged)
-        datePicker?.backgroundColor = UIToolbar().barTintColor
+        datePicker?.backgroundColor = UIColor(red: 246 / 255, green: 246 / 255, blue: 247 / 255, alpha: 1)
         datePicker?.sizeToFit()
     }
     
