@@ -128,19 +128,19 @@ public class BaseViewController: UIViewController {
             
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
                 
+                var navigationBarHeight:CGFloat = 0
+                
+                if let navigationBar = navigationController?.navigationBar {
+                    
+                    navigationBarHeight = navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
+                }
+                
                 for tableView in tableViews {
                     
                     let originalContentInset = tableViewOriginalInsetInfo[tableView]!.contentInset
                     let originalScrollIndicatorInsets = tableViewOriginalInsetInfo[tableView]!.scrollIndicatorInsets
                     
                     if keyboardSize.origin.y == UIScreen.mainScreen().bounds.size.height {
-                        
-                        var navigationBarHeight:CGFloat = 0
-                        
-                        if let navigationBar = navigationController?.navigationBar {
-                            
-                            navigationBarHeight = navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
-                        }
                         
                         tableView.contentInset = UIEdgeInsets(top: originalContentInset.top + navigationBarHeight, left: originalContentInset.left, bottom: originalContentInset.bottom, right: originalContentInset.right)
                         tableView.scrollIndicatorInsets = UIEdgeInsets(top: originalScrollIndicatorInsets.top + navigationBarHeight, left: originalScrollIndicatorInsets.left, bottom: originalScrollIndicatorInsets.bottom, right: originalScrollIndicatorInsets.right)
@@ -149,8 +149,8 @@ public class BaseViewController: UIViewController {
                         
                         let bottomOffset = keyboardSize.height
                         
-                        tableView.contentInset = UIEdgeInsetsMake(originalContentInset.top, originalContentInset.left, bottomOffset, originalContentInset.right)
-                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(originalScrollIndicatorInsets.top, originalScrollIndicatorInsets.left, bottomOffset, originalScrollIndicatorInsets.right)
+                        tableView.contentInset = UIEdgeInsetsMake(originalContentInset.top + navigationBarHeight, originalContentInset.left, bottomOffset, originalContentInset.right)
+                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(originalScrollIndicatorInsets.top + navigationBarHeight, originalScrollIndicatorInsets.left, bottomOffset, originalScrollIndicatorInsets.right)
                     }
                     
                     tableView.beginUpdates()
