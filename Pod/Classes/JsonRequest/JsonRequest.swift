@@ -36,7 +36,7 @@ public class JsonRequest: NSObject {
     internal convenience init(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) {
         self.init()
         
-        self.urlString = urlString.urlEncodeUrlComponent()
+        self.urlString = urlString.urlEncode()
         self.parameters = parameters
         self.method = method
         
