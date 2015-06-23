@@ -52,18 +52,18 @@ public class BaseViewController: UIViewController {
                 
                 deselectSelectedCell(tableView)
                 
-                var navigationBarHeight:CGFloat = 0
-                
-                if let navigationBar = navigationController?.navigationBar {
-                    
-                    navigationBarHeight = navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
-                }
-                
-                let originalContentInset = tableViewOriginalInsetInfo[tableView]!.contentInset
-                let originalScrollIndicatorInsets = tableViewOriginalInsetInfo[tableView]!.scrollIndicatorInsets
-                
-                tableView.contentInset = UIEdgeInsets(top: originalContentInset.top + navigationBarHeight, left: originalContentInset.left, bottom: originalContentInset.bottom, right: originalContentInset.right)
-                tableView.scrollIndicatorInsets = UIEdgeInsets(top: originalScrollIndicatorInsets.top + navigationBarHeight, left: originalScrollIndicatorInsets.left, bottom: originalScrollIndicatorInsets.bottom, right: originalScrollIndicatorInsets.right)
+//                var navigationBarHeight:CGFloat = 0
+//                
+//                if let navigationBar = navigationController?.navigationBar {
+//                    
+//                    navigationBarHeight = navigationBar.frame.height + UIApplication.sharedApplication().statusBarFrame.size.height
+//                }
+//                
+//                let originalContentInset = tableViewOriginalInsetInfo[tableView]!.contentInset
+//                let originalScrollIndicatorInsets = tableViewOriginalInsetInfo[tableView]!.scrollIndicatorInsets
+//                
+//                tableView.contentInset = UIEdgeInsets(top: originalContentInset.top + navigationBarHeight, left: originalContentInset.left, bottom: originalContentInset.bottom, right: originalContentInset.right)
+//                tableView.scrollIndicatorInsets = UIEdgeInsets(top: originalScrollIndicatorInsets.top + navigationBarHeight, left: originalScrollIndicatorInsets.left, bottom: originalScrollIndicatorInsets.bottom, right: originalScrollIndicatorInsets.right)
             }
         }
     }
@@ -72,6 +72,7 @@ public class BaseViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         refreshRequest?.cancel()
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     public func setupTableView(tableView: UITableView, delegate: UITableViewDelegate, dataSource:UITableViewDataSource) {
