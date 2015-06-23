@@ -41,6 +41,7 @@ public class FormViewController: BaseViewController {
         
         formViewDelegate = self
         
+        shouldAdjustTableViewInsetsForKeyboard = true
         setupTableView(tableView, delegate: self, dataSource: self)
         reloadForm()
     }

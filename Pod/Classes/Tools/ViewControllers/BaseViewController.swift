@@ -32,7 +32,7 @@ public class BaseViewController: UIViewController {
     var tableViewOriginalInsetInfo = Dictionary<UITableView, (contentInset: UIEdgeInsets, scrollIndicatorInsets: UIEdgeInsets)>()
     
     public var shouldDeselectCellOnViewWillAppear = true
-    public var shouldAdjustTableViewInsetsForKeyboard = true
+    public var shouldAdjustTableViewInsetsForKeyboard = false
     
     
     public override func viewDidLoad() {
