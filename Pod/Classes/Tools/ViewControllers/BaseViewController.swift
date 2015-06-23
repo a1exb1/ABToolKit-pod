@@ -13,16 +13,32 @@ import UIKit
     func preferredNavigationBar()
 }
 
+enum ConstraintReference {
+    
+    case None
+    case Top
+    case Left
+    case Right
+    case Bottom
+}
+
 public class BaseViewController: UIViewController {
     
     var tableViews: Array<UITableView> = []
-    public var shouldDeselectCellOnViewWillAppear = true
+    
     public var refreshRequest: JsonRequest?
+    var tableViewConstraints = Dictionary<ConstraintReference, NSLayoutConstraint>()
+    
+    public var shouldDeselectCellOnViewWillAppear = true
+    var shouldAdjustTableViewInsetsForKeyboard = true
+    
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidChangeFrame:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -66,7 +82,12 @@ public class BaseViewController: UIViewController {
     public func setupTableViewConstraints(tableView: UITableView) {
         
         tableView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        tableView.fillSuperView(UIEdgeInsetsZero)
+        
+        let constraints = tableView.fillSuperView(UIEdgeInsetsZero)
+        tableViewConstraints[.Top] = constraints[0]
+        tableViewConstraints[.Left] = constraints[1]
+        tableViewConstraints[.Bottom] = constraints[2]
+        tableViewConstraints[.Right] = constraints[3]
     }
     
     public func refresh(refreshControl: UIRefreshControl?) {
@@ -92,6 +113,36 @@ public class BaseViewController: UIViewController {
         else {
             
             dismissViewControllerAnimated(animated, completion: nil)
+        }
+    }
+    
+    //MARK: - Notification methods
+    
+    func keyboardDidChangeFrame(notification:NSNotification){
+        
+        if shouldAdjustTableViewInsetsForKeyboard {
+            
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+                
+                for tableView in tableViews {
+                    
+                    if keyboardSize.origin.y == UIScreen.mainScreen().bounds.size.height {
+                        
+                        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+                        
+                    } else {
+                        
+                        let bottomOffset = keyboardSize.height
+                        
+                        tableView.contentInset = UIEdgeInsetsMake(0, 0, bottomOffset, 0)
+                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, bottomOffset, 0)
+                    }
+                    
+                    tableView.beginUpdates()
+                    tableView.endUpdates()
+                }
+            }
         }
     }
 }
