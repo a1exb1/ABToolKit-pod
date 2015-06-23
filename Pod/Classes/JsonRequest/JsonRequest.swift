@@ -28,6 +28,8 @@ public class JsonRequest: NSObject {
     
     internal var finishDownloadClosures: [() -> ()] = []
     
+    internal var active = false
+    
     public class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) -> T {
         
         return JsonRequest(urlString: urlString, parameters: parameters, method: method) as! T
@@ -125,6 +127,7 @@ public class JsonRequest: NSObject {
     
     internal func exec() {
         
+        active = true
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         self.alamofireRequest = Alamofire.request(method, urlString, parameters: parameters, encoding: ParameterEncoding.URL)
@@ -141,7 +144,10 @@ public class JsonRequest: NSObject {
                         }
                     })
                     
-                    self.failDownload(e, alert: alert)
+                    if self.active {
+                        
+                        self.failDownload(e, alert: alert)
+                    }
                 }
                     
                 else{
@@ -174,6 +180,7 @@ public class JsonRequest: NSObject {
     
     public func cancel() {
         
+        active = false
         self.alamofireRequest?.cancel()
     }
     
