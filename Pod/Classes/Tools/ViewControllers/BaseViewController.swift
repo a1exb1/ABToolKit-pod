@@ -17,6 +17,7 @@ public class BaseViewController: UIViewController {
     
     var tableViews: Array<UITableView> = []
     public var shouldDeselectCellOnViewWillAppear = true
+    public var refreshRequest: JsonRequest?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
