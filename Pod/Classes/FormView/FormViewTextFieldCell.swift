@@ -14,6 +14,7 @@ public class FormViewTextFieldCell: FormViewCell {
 
     public var label = UILabel()
     public var textField = UITextField()
+    public var datePicker: UIDatePicker?
     
     override public func drawRect(rect: CGRect) {
         super.drawRect(rect)
@@ -32,10 +33,15 @@ public class FormViewTextFieldCell: FormViewCell {
             
             textField.addTarget(self, action: "textFieldChanged:", forControlEvents: UIControlEvents.EditingChanged)
         }
-        if config.formCellType == FormCellType.TextFieldCurrency {
+        else if config.formCellType == FormCellType.TextFieldCurrency {
             
             textField.keyboardType = UIKeyboardType.DecimalPad
             textField.delegate = self
+        }
+        else if config.formCellType == FormCellType.DatePicker {
+
+            setupDatePicker()
+            textField.inputView = datePicker!
         }
         
         textField.userInteractionEnabled = editable
@@ -46,7 +52,20 @@ public class FormViewTextFieldCell: FormViewCell {
         formViewDelegate?.formViewTextFieldEditingChanged?(config.identifier, text: textField.text)
         formViewDelegate?.formViewElementDidChange?(config.identifier, value: textField.text)
     }
-
+    
+    func setupDatePicker() {
+        
+        datePicker = UIDatePicker()
+        datePicker?.addTarget(self, action: "datePickerValueDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+        datePicker?.sizeToFit()
+    }
+    
+    func datePickerValueDidChange(datePicker: UIDatePicker) {
+        
+        textField.text = datePicker.date.toString(config.format)
+        formViewDelegate?.formViewDateChanged?(config.identifier, date: datePicker.date)
+        formViewDelegate?.formViewElementDidChange?(config.identifier, value: datePicker.date)
+    }
     
     // MARK: - Constraints
     
