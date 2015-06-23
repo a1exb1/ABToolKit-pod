@@ -27,7 +27,9 @@ public class BaseViewController: UIViewController {
     var tableViews: Array<UITableView> = []
     
     public var refreshRequest: JsonRequest?
+    
     var tableViewConstraints = Dictionary<ConstraintReference, NSLayoutConstraint>()
+    var tableViewOriginalInsetInfo = Dictionary<UITableView, (contentInset: UIEdgeInsets, scrollIndicatorInsets: UIEdgeInsets)>()
     
     public var shouldDeselectCellOnViewWillAppear = true
     public var shouldAdjustTableViewInsetsForKeyboard = true
@@ -68,6 +70,8 @@ public class BaseViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         tableViews.append(tableView)
+        
+        tableViewOriginalInsetInfo[tableView] = (contentInset: tableView.contentInset, scrollIndicatorInsets: tableView.scrollIndicatorInsets)
         
         tableView.reloadData()
     }
@@ -126,17 +130,20 @@ public class BaseViewController: UIViewController {
                 
                 for tableView in tableViews {
                     
+                    let originalContentInset = tableViewOriginalInsetInfo[tableView]!.contentInset
+                    let originalScrollIndicatorInsets = tableViewOriginalInsetInfo[tableView]!.scrollIndicatorInsets
+                    
                     if keyboardSize.origin.y == UIScreen.mainScreen().bounds.size.height {
                         
-                        tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+                        tableView.contentInset = originalContentInset
+                        tableView.scrollIndicatorInsets = originalScrollIndicatorInsets
                         
                     } else {
                         
                         let bottomOffset = keyboardSize.height
                         
-                        tableView.contentInset = UIEdgeInsetsMake(0, 0, bottomOffset, 0)
-                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, bottomOffset, 0)
+                        tableView.contentInset = UIEdgeInsetsMake(originalContentInset.top, originalContentInset.left, bottomOffset, originalContentInset.right)
+                        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(originalScrollIndicatorInsets.top, originalScrollIndicatorInsets.left, bottomOffset, originalScrollIndicatorInsets.right)
                     }
                     
                     tableView.beginUpdates()
