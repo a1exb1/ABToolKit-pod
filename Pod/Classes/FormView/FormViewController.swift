@@ -104,7 +104,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         
         if config.formCellType == FormCellType.TextField || config.formCellType == FormCellType.TextFieldCurrency || config.formCellType == FormCellType.DatePicker {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier(kTextFieldCellIdenfitier) as! FormViewTextFieldCell
+            let cell = FormViewTextFieldCell()
             
             cell.formViewDelegate = formViewDelegate
             cell.config = config
@@ -125,7 +125,7 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else if config.formCellType == FormCellType.Button {
             
-            let cell = tableView.dequeueReusableCellWithIdentifier(kButtonCellIdentifier) as! FormViewButtonCell
+            let cell = FormViewButtonCell()
             
             cell.formViewDelegate = formViewDelegate
             cell.config = config
