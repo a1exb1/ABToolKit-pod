@@ -49,7 +49,7 @@ Pod::Spec.new do |s|
     s.dependency 'Alamofire', '~> 1.2.1'
     s.dependency 'SwiftyJSON', '~> 2.2.0'
 #s.dependency 'SwiftyUserDefaults', '~> 1.2.0'
-    s.dependency 'SwiftyUserDefaults', :git => 'https://github.com/orta/ORSimulatorKeyboardAccessor.git'
+    s.dependency 'SwiftyUserDefaults', :git => 'https://github.com/radex/SwiftyUserDefaults'
 
 # s. prefix_header_contents = "import Alamofire import SwiftyJSON"
 end
