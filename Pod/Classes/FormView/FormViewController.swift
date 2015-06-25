@@ -32,7 +32,7 @@ private let kButtonCellIdentifier = "ButtonCell"
 public class FormViewController: BaseViewController {
     
     public var tableView = UITableView(frame: CGRectZero, style: .Grouped)
-    var data: Array<Array<FormViewConfiguration>> = []
+    public var data: Array<Array<FormViewConfiguration>> = []
     var selectedIndexPath: NSIndexPath?
     public var formViewDelegate: FormViewDelegate?
     
@@ -162,6 +162,28 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         tableView.beginUpdates()
         tableView.endUpdates()
+    }
+    
+    public func indexPathForFormViewCellIdentifier(identifier: String) -> NSIndexPath? {
+        
+        for section in data {
+            
+            let sectionIndex = find(data, section)!
+            
+            for config in section {
+                
+                let configIndex = find(section, config)!
+                
+                if config.identifier == identifier {
+                    
+                    return NSIndexPath(forRow: configIndex, inSection: sectionIndex)
+                    
+                    break
+                }
+            }
+        }
+        
+        return nil
     }
 }
 
