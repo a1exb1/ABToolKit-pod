@@ -166,21 +166,23 @@ extension FormViewController: UITableViewDelegate, UITableViewDataSource {
     
     public func indexPathForFormViewCellIdentifier(identifier: String) -> NSIndexPath? {
         
+        var sectionIndex = 0
+        
         for section in data {
             
-            let sectionIndex = find(data, section)!
+            var configIndex = 0
             
             for config in section {
-                
-                let configIndex = find(section, config)!
                 
                 if config.identifier == identifier {
                     
                     return NSIndexPath(forRow: configIndex, inSection: sectionIndex)
-                    
-                    break
                 }
+                
+                configIndex++
             }
+            
+            sectionIndex++
         }
         
         return nil
