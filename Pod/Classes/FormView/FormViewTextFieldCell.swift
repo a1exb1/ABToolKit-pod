@@ -73,6 +73,7 @@ public class FormViewTextFieldCell: FormViewCell {
     func setDateToToday() {
         
         datePicker?.setDate(NSDate(), animated: true)
+        datePickerValueDidChange(datePicker!)
     }
     
     
