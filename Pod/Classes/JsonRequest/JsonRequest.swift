@@ -29,6 +29,7 @@ public class JsonRequest: NSObject {
     internal var finishDownloadClosures: [() -> ()] = []
     
     internal var active = false
+    public var isLoading = false
     
     public class func create< T : JsonRequest >(urlString:String, parameters:Dictionary<String, AnyObject>?, method:Alamofire.Method) -> T {
         
@@ -127,6 +128,7 @@ public class JsonRequest: NSObject {
     
     internal func exec() {
         
+        isLoading = true
         active = true
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
@@ -165,6 +167,7 @@ public class JsonRequest: NSObject {
                     self.finishDownload()
                 }
                 
+                self.isLoading = false
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
     }
