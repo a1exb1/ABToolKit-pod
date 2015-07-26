@@ -32,7 +32,13 @@ private let kButtonCellIdentifier = "ButtonCell"
 public class FormViewController: BaseViewController {
     
     public var tableView = UITableView(frame: CGRectZero, style: .Grouped)
-    public var data: Array<Array<FormViewConfiguration>> = []
+    public var data: Array<Array<FormViewConfiguration>> {
+        get{
+            
+            return formViewDelegate!.formViewElements()
+        }
+    }
+    
     var selectedIndexPath: NSIndexPath?
     public var formViewDelegate: FormViewDelegate?
     public var shouldLoadFormOnLoad = true
@@ -53,10 +59,10 @@ public class FormViewController: BaseViewController {
     
     public func reloadForm() {
         
-        if let elements = formViewDelegate?.formViewElements() {
-            
-            data = elements
-        }
+//        if let elements = formViewDelegate?.formViewElements() {
+//            
+//            data = elements
+//        }
         
         tableView.reloadData()
     }
