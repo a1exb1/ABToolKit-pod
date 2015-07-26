@@ -54,10 +54,10 @@ public class FormViewController: BaseViewController {
     
     public func reloadForm() {
         
-//        if let elements = formViewDelegate?.formViewElements() {
-//            
-//            data = elements
-//        }
+        if let elements = formViewDelegate?.formViewElements() {
+            
+            data = elements
+        }
         
         tableView.reloadData()
     }
