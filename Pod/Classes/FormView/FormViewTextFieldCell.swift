@@ -68,6 +68,7 @@ public class FormViewTextFieldCell: FormViewCell {
         textField.text = datePicker.date.toString(config.format)
         formViewDelegate?.formViewDateChanged?(config.identifier, date: datePicker.date)
         formViewDelegate?.formViewElementDidChange?(config.identifier, value: datePicker.date)
+        config.value = datePicker.date
     }
     
     func setDateToToday() {
@@ -131,6 +132,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             
             formViewDelegate?.formViewTextFieldCurrencyEditingChanged?(config.identifier, value: numberFromField)
             formViewDelegate?.formViewElementDidChange?(config.identifier, value: numberFromField)
+            config.value = numberFromField
             
             return false
         }
