@@ -35,7 +35,12 @@ public class FormViewController: BaseViewController {
     public var data: Array<Array<FormViewConfiguration>> {
         get{
             
-            return formViewDelegate!.formViewElements()
+            if let elements = formViewDelegate?.formViewElements() {
+                
+                return elements
+            }
+            
+            return []
         }
     }
     
