@@ -48,6 +48,23 @@ public class FormViewTextFieldCell: FormViewCell {
         textField.userInteractionEnabled = editable
     }
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if config.formCellType == FormCellType.TextField || config.formCellType == FormCellType.TextFieldCurrency  {
+            
+            textField.text = config.value as! String
+        }
+        else if config.formCellType == FormCellType.TextFieldCurrency {
+            
+            textField.text = (config.value as! NSDate).toString(config.format)
+        }
+        else if config.formCellType == FormCellType.DatePicker {
+         
+            textField.text = (config.value as! NSDate).toString(config.format)
+        }
+    }
+    
     public func textFieldChanged(textField: UITextField) {
         
         formViewDelegate?.formViewTextFieldEditingChanged?(config.identifier, text: textField.text)
@@ -68,6 +85,7 @@ public class FormViewTextFieldCell: FormViewCell {
         textField.text = datePicker.date.toString(config.format)
         formViewDelegate?.formViewDateChanged?(config.identifier, date: datePicker.date)
         formViewDelegate?.formViewElementDidChange?(config.identifier, value: datePicker.date)
+        config.value = datePicker.date
     }
     
     func setDateToToday() {
@@ -131,6 +149,7 @@ extension FormViewTextFieldCell: UITextFieldDelegate {
             
             formViewDelegate?.formViewTextFieldCurrencyEditingChanged?(config.identifier, value: numberFromField)
             formViewDelegate?.formViewElementDidChange?(config.identifier, value: numberFromField)
+            config.value = numberFromField
             
             return false
         }
