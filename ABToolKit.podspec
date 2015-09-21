@@ -46,8 +46,8 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   #
-    s.dependency 'Alamofire', '~> 1.2.1'
-    s.dependency 'SwiftyJSON', '~> 2.2.0'
+    s.dependency 'Alamofire', '~> 1.3.0'
+    s.dependency 'SwiftyJSON', '~> 2.3.0'
 #s.dependency 'SwiftyUserDefaults', '~> 1.2.0'
 #    s.dependency 'SwiftyUserDefaults', :git => 'https://github.com/radex/SwiftyUserDefaults'
 
